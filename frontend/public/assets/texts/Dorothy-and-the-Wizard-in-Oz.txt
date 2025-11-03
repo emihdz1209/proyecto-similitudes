@@ -11,7 +11,7 @@
   BOOKS OF WONDER WILLIAM MORROW & CO., INC. NEW YORK
 
 
-  []
+  [Illustration]
 
 
   COPYRIGHT 1908 BY L. FRANK BAUM
@@ -22,7 +22,7 @@
          *       *       *       *       *
 
 
-  []
+  [Illustration]
 
 
   DEDICATED TO HARRIET A. B. NEAL.
@@ -146,7 +146,7 @@ CHAPTER                                                             PAGE
   20  ZEB RETURNS TO THE RANCH                                         251
 
 
-[]
+[Illustration]
 
 
 
@@ -255,7 +255,7 @@ shake?"
 "Yes; but we're used to such things in California," he replied. "They
 don't scare us much."
 
-[: DOROTHY POKED THE BOY WITH HER PARASOL.]
+[Illustration: DOROTHY POKED THE BOY WITH HER PARASOL.]
 
 "The conductor said it was the worst quake he ever knew."
 
@@ -343,9 +343,9 @@ little girl lost consciousness. Zeb, being a boy, did not faint, but he
 was badly frightened, and clung to the buggy seat with a tight grip,
 expecting every moment would be his last.
 
-[]
+[Illustration]
 
-[]
+[Illustration]
 
 
 
@@ -412,7 +412,7 @@ together, and her appearance seemed to add to his fright.
 
 "I--I don't s-s-see any-thing funny--'bout it!" he stammered.
 
-[: HORSE, BUGGY AND ALL FELL SLOWLY.]
+[Illustration: HORSE, BUGGY AND ALL FELL SLOWLY.]
 
 Just then the buggy tipped slowly over upon its side, the body of the
 horse tipping also. But they continued to fall, all together, and the
@@ -638,7 +638,7 @@ with a sniff at the rebuke of his young master; "and just at present no
 one can tell whether there are any oats in this queer country or not. If
 there are, they are liable to be glass oats!"
 
-[: "COME ON, JIM! IT'S ALL RIGHT."]
+[Illustration: "COME ON, JIM! IT'S ALL RIGHT."]
 
 "Oh, no!" exclaimed Dorothy. "I can see plenty of nice gardens and
 fields down below us, at the edge of this city. But I wish we could find
@@ -737,7 +737,7 @@ then that, until they came to an open square in the center of which was
 a big glass palace having a central dome and four tall spires on each
 corner.
 
-[]
+[Illustration]
 
 
 
@@ -1081,7 +1081,7 @@ continued the Prince.
 will explain to you much better than I can here the mysteries of our
 Vegetable Kingdom."
 
-[: THE WIZARD CUT THE SORCERER EXACTLY IN TWO.]
+[Illustration: THE WIZARD CUT THE SORCERER EXACTLY IN TWO.]
 
 
 
@@ -1525,7 +1525,7 @@ caught on the bent pin; so the little man drew in the string and, sure
 enough, the fish came with it and was landed safely on the shore,
 where it began to flop around in great excitement.
 
-[: IN THE GARDEN OF THE MANGABOOS.]
+[Illustration: IN THE GARDEN OF THE MANGABOOS.]
 
 The fish was fat and round, and its scales glistened like beautifully
 cut jewels set close together; but there was no time to examine it
@@ -1621,7 +1621,7 @@ nestling comfortably beside his big, boney body. Then the boy returned
 to one of the upper rooms, and in spite of the hardness of the glass
 bench was soon deep in slumberland.
 
-[]
+[Illustration]
 
 
 
@@ -1727,7 +1727,7 @@ set a lantern upon each of their heads.
 "Don't laugh," he whispered to them, "or you will spoil the effect of my
 magic."
 
-[: "NOW, PRINCESS," EXCLAIMED THE WIZARD.]
+[Illustration: "NOW, PRINCESS," EXCLAIMED THE WIZARD.]
 
 Then, with much dignity and a look of vast importance upon his wrinkled
 face, the Wizard got out his match-box and lighted the two lanterns. The
@@ -1842,7 +1842,7 @@ Eureka out, and although the field of battle was thickly covered with
 mashed and disabled Mangaboos, our animal friends had to give up at last
 and allow themselves to be driven to the mountain.
 
-[]
+[Illustration]
 
 
 
@@ -1910,7 +1910,7 @@ opposing him in this they stood back in silence until he had made a
 good-sized hole in the barrier, when by order of the Princess they all
 sprang forward and thrust out their sharp thorns.
 
-[: THROUGH THE BLACK PIT.]
+[Illustration: THROUGH THE BLACK PIT.]
 
 Dorothy hopped inside the opening to escape being pricked, and Zeb and
 the Wizard, after enduring a few stabs from the thorns, were glad to
@@ -1986,7 +1986,7 @@ assurance of a quick relief from the dark passage, and in a few moments
 more they had emerged from the mountain and found themselves face to
 face with a new and charming country.
 
-[]
+[Illustration]
 
 
 
@@ -2090,7 +2090,7 @@ Wizard could not discover a single piglet.
 
 "Why, right beside you," spoke a tiny voice. "Can't you see us?"
 
-[: "ARE THERE REALLY PEOPLE IN THIS ROOM?"]
+[Illustration: "ARE THERE REALLY PEOPLE IN THIS ROOM?"]
 
 "No," answered the little man, in a puzzled tone.
 
@@ -2233,7 +2233,7 @@ the bears cannot find us to eat us up. But now, good wanderers, your
 luncheon is on the table, so please sit down and eat as much as you
 like."
 
-[]
+[Illustration]
 
 
 
@@ -2453,7 +2453,7 @@ of Voe, and do not seem to know our ways; so I will try to save you."
 The next moment a broad-leaved plant was jerked from the ground where it
 grew and held suspended in the air before the Wizard.
 
-[: ESCAPING THE INVISIBLE BEARS.]
+[Illustration: ESCAPING THE INVISIBLE BEARS.]
 
 "Sir," said the voice, "you must rub these leaves upon the soles of
 all your feet, and then you will be able to walk upon the water without
@@ -2560,7 +2560,7 @@ of the seat, and that saved her. She squeezed the kitten, though, until
 it screeched; and then the old cab-horse made several curious sounds
 that led the little girl to suspect he was laughing at them all.
 
-[]
+[Illustration]
 
 
 
@@ -2686,9 +2686,9 @@ grade of Rustles for ladies' silk gowns."
 "I thought so," said the Wizard, with a sigh. "May we examine some of
 these articles?"
 
-[: THE CLOUD FAIRIES.]
+[Illustration: THE CLOUD FAIRIES.]
 
-[: THE BRAIDED MAN.]
+[Illustration: THE BRAIDED MAN.]
 
 "Yes, indeed; come into my shop, please," and the braided man turned and
 led the way into a smaller cave, where he evidently lived. Here, on a
@@ -2755,7 +2755,7 @@ forehead significantly, to indicate that he thought the poor man was
 crazy. So they politely bade him good day, and went back to the outer
 cavern to resume their journey.
 
-[]
+[Illustration]
 
 
 
@@ -3024,7 +3024,7 @@ its wings and arms so that it could not move. Then, having tied the
 wooden creature securely, the boy buckled the strap and tossed his
 prisoner into the buggy. By that time the others had all retired.
 
-[]
+[Illustration]
 
 
 
@@ -3053,7 +3053,7 @@ fired all of his twelve bullets he had caused no damage to the enemy
 except to stun a few by the noise, and so he was no nearer to victory
 than in the beginning of the fray.
 
-[: THE WIZARD FIRED INTO THE THRONG.]
+[Illustration: THE WIZARD FIRED INTO THE THRONG.]
 
 "What shall we do now?" asked Dorothy, anxiously.
 
@@ -3267,7 +3267,7 @@ For answer Zeb began to unfasten Jim's harness, strap by strap, and
 to buckle one piece to another until he had made a long leather strip
 that would reach to the ground.
 
-[: THE FIGHT WITH THE GARGOYLES.]
+[Illustration: THE FIGHT WITH THE GARGOYLES.]
 
 "I can climb down that, all right," he said.
 
@@ -3322,7 +3322,7 @@ The other four wings were then fastened to the buggy, two on each side,
 for the buggy must bear the weight of the children and the Wizard as it
 flew through the air.
 
-[: JIM FLUTTERED AND FLOUNDERED THROUGH THE AIR.]
+[Illustration: JIM FLUTTERED AND FLOUNDERED THROUGH THE AIR.]
 
 These preparations had not consumed a great deal of time, but the
 sleeping Gargoyles were beginning to wake up and move around, and soon
@@ -3365,7 +3365,7 @@ collecting a band to pursue the escaping prisoners; so that when Dorothy
 happened to look back she saw them coming in a great cloud that almost
 darkened the sky.
 
-[]
+[Illustration]
 
 
 
@@ -3432,7 +3432,7 @@ they had started, hours before.
 "Anyhow," said Dorothy, "we've 'scaped those awful Gurgles, and that's
 _one_ comfort!"
 
-[: "WHY IT'S A DRAGON!"]
+[Illustration: "WHY IT'S A DRAGON!"]
 
 "Probably the Gargoyles are still busy trying to put out the fire,"
 returned the Wizard. "But even if they succeeded in doing that it
@@ -3614,7 +3614,7 @@ hurried along it as fast as they could go, for they had no idea when the
 mother dragon would be back and were very anxious not to make her
 acquaintance.
 
-[]
+[Illustration]
 
 
 
@@ -3944,7 +3944,7 @@ and no warning. One moment Dorothy sat beside them with the kitten in
 her lap, and a moment later the horse, the piglets, the Wizard and the
 boy were all that remained in the underground prison.
 
-[: DOROTHY MADE THE SIGNAL.]
+[Illustration: DOROTHY MADE THE SIGNAL.]
 
 "I believe we will soon follow her," announced the Wizard, in a tone of
 great relief; "for I know something about the magic of the fairyland
@@ -3980,7 +3980,7 @@ strangers.
 courtyard and drew the buggy along the jewelled driveway to the great
 entrance of the royal palace.
 
-[]
+[Illustration]
 
 
 
@@ -4237,7 +4237,7 @@ soft, stuffed hands of his old friend.
 you gave me the best brains in the world, for I can think with them day
 and night, when all other brains are fast asleep."
 
-[: DOROTHY AND OZMA.]
+[Illustration: DOROTHY AND OZMA.]
 
 "How long did you rule the Emerald City, after I left here?" was the
 next question.
@@ -4327,7 +4327,7 @@ one less thoroughly educated; so they straightway forgot him and joined
 in a merry conversation that kept them well amused until bed-time
 arrived.
 
-[]
+[Illustration]
 
 
 
@@ -4407,7 +4407,7 @@ a head. The ends of the wooden legs were shod with plates of solid gold,
 and the saddle of the Princess Ozma, which was of red leather set with
 sparkling diamonds, was strapped to the clumsy body.
 
-[: "FOR GOODNESS SAKE, WHAT SORT OF A BEING ARE YOU?"]
+[Illustration: "FOR GOODNESS SAKE, WHAT SORT OF A BEING ARE YOU?"]
 
 Jim's eyes stuck out as much as those of the Sawhorse, and he stared at
 the creature with his ears erect and his long head drawn back until it
@@ -4616,9 +4616,9 @@ in good spirits.
 "Breakfast is served, dear," she said, "and I am hungry. So don't let us
 keep it waiting a single minute."
 
-[]
+[Illustration]
 
-[: JIM STOOD TREMBLING LIKE A LEAF.]
+[Illustration: JIM STOOD TREMBLING LIKE A LEAF.]
 
 
 
@@ -4810,7 +4810,7 @@ Jim.
 "Go!" cried Zeb; and at the word the two horses leaped forward and the
 race was begun.
 
-[: THE WIZARD TOOK A PIGLET FROM OZMA'S HAIR.]
+[Illustration: THE WIZARD TOOK A PIGLET FROM OZMA'S HAIR.]
 
 Jim's big hoofs pounded away at a great rate, and although he did not
 look very graceful he ran in a way to do credit to his Kentucky
@@ -4822,7 +4822,7 @@ and the wooden animal returned to the starting place and was being
 lustily cheered by the Ozites before Jim came panting up to the canopy
 where the Princess and her friends were seated.
 
-[: THE HUNGRY TIGER TEACHES JIM A LESSON.]
+[Illustration: THE HUNGRY TIGER TEACHES JIM A LESSON.]
 
 I am sorry to record the fact that Jim was not only ashamed of his
 defeat but for a moment lost control of his temper. As he looked at the
@@ -4875,7 +4875,7 @@ account whatever. It's no place for us, Zeb."
 "It's lucky we got here, though," said the boy; and Jim thought of the
 dark cave, and agreed with him.
 
-[]
+[Illustration]
 
 
 
@@ -5025,7 +5025,7 @@ Public Accuser, because he is so learned that no one can deceive him."
 
 "Who will be the jury?" asked the Tin Woodman.
 
-[: PORTRAIT OF THE WIZARD OF OZ.]
+[Illustration: PORTRAIT OF THE WIZARD OF OZ.]
 
 "There ought to be several animals on the jury," said Ozma, "because
 animals understand each other better than we people understand them.
@@ -5160,7 +5160,7 @@ creature and eat it up----"
 because since the time of that interview there is no piglet to be found
 anywhere."
 
-[: EUREKA IN COURT.]
+[Illustration: EUREKA IN COURT.]
 
 "I suppose, if the cat had been gone, instead of the piglet, your mind's
 eye would see the piglet eating the cat," suggested the Scarecrow.
@@ -5366,7 +5366,7 @@ much obliged to you."
 "Ozma can do it, easily," replied Dorothy. "Tomorrow morning I'll go to
 Kansas and you can go to Californy."
 
-[: "I'M MUCH OBLIGED FOR ALL YOUR KINDNESS."]
+[Illustration: "I'M MUCH OBLIGED FOR ALL YOUR KINDNESS."]
 
 That last evening was so delightful that the boy will never forget it as
 long as he lives. They were all together (except Eureka) in the
@@ -5422,4 +5422,4 @@ world have you been, my lad?"
 
 The End
 
-[]
+[Illustration]
