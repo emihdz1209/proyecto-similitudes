@@ -200,8 +200,10 @@ val CompararLCSPorChunks(string text1, string text2, int chunkSize) {
     for (size_t i = 0; i < minChunks; ++i) {
         string subSec = LcSubSecuencia(chunks1[i], chunks2[i]);
         if (subSec.size() > mejorSubSecuencia.size()) {
-            mejorSubSecuencia = subSec;
+            //mejorSubSecuencia = subSec;
+            //cout<< "Procesado chunks " << i + 1 << " / " << mejorSubSecuencia.size() << "\n";
         }
+        mejorSubSecuencia += subSec;
     }
     
     // Calcular similitud
