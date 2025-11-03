@@ -39,7 +39,6 @@ export const compareLCS = async (text1, text2) => {
   return response.data;
 };
 
-// Nuevas funciones con chunks
 export const compareLCSstrChunks = async (text1, text2, chunkSize = 5000) => {
   const response = await api.post("/api/compare/lcstr-chunks", {
     text1,
