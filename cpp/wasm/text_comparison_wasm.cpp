@@ -202,9 +202,6 @@ val CompararLCSPorChunks(string text1, string text2, int chunkSize) {
 // ============================================================================
 
 EMSCRIPTEN_BINDINGS(text_comparison_module) {
-    emscripten::function("CompararLCSstr", &CompararLCSstr);
-    emscripten::function("CompararLCS", &CompararLCS);
-    emscripten::function("PreprocesarTexto", &PreprocesarTexto);
     emscripten::function("CompararLCSstrPorChunks", &CompararLCSstrPorChunks);
     emscripten::function("CompararLCSPorChunks", &CompararLCSPorChunks);
     emscripten::function("LcSubString", &LcSubString);
