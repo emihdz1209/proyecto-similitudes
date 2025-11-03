@@ -88,7 +88,7 @@ string LimpiarTexto(const string &S, int& contCaracteres) {
         "the", "a", "an", "to", "of", "at",
     };
 
-    string limpio;
+    string limpio;  
     string palabra;
 
     for (size_t i = 0; i < S.size(); ++i) {

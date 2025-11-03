@@ -9,7 +9,7 @@ using namespace emscripten;
 using namespace std;
 
 // ============================================================================
-// FUNCIONES ORIGINALES - SIN MODIFICAR
+// FUNCIONES 
 // ============================================================================
 
 string LcSubString(string S1, string S2){
@@ -114,7 +114,7 @@ string LimpiarTexto(const string &S, int& contCaracteres) {
 }
 
 // ============================================================================
-// FUNCIONES DE CHUNKS - NUEVAS
+// FUNCIONES DE CHUNKS
 // ============================================================================
 
 vector<string> DividirEnChunks(const string &texto, size_t chunkSize) {
@@ -195,57 +195,6 @@ val CompararLCSPorChunks(string text1, string text2, int chunkSize) {
     result.set("chunksProcessed", val((int)minChunks));
     
     return result;
-}
-
-// ============================================================================
-// FUNCIONES ORIGINALES WRAPPER
-// ============================================================================
-
-val CompararLCSstr(string text1, string text2) {
-    int cont1 = 0, cont2 = 0;
-    string clean1 = LimpiarTexto(text1, cont1);
-    string clean2 = LimpiarTexto(text2, cont2);
-    
-    string substring = LcSubString(clean1, clean2);
-    
-    double maxLen = max(cont1, cont2);
-    double similarity = (maxLen > 0) ? (substring.length() / maxLen) * 100 : 0;
-    
-    val result = val::object();
-    result.set("algorithm", val("Longest Common Substring"));
-    result.set("substring", val(substring));
-    result.set("length", val((int)substring.length()));
-    result.set("text1Length", val(cont1));
-    result.set("text2Length", val(cont2));
-    result.set("similarity", val(similarity));
-    
-    return result;
-}
-
-val CompararLCS(string text1, string text2) {
-    int cont1 = 0, cont2 = 0;
-    string clean1 = LimpiarTexto(text1, cont1);
-    string clean2 = LimpiarTexto(text2, cont2);
-    
-    string subsequence = LcSubSecuencia(clean1, clean2);
-    
-    double maxLen = max(cont1, cont2);
-    double similarity = (maxLen > 0) ? (subsequence.length() / maxLen) * 100 : 0;
-    
-    val result = val::object();
-    result.set("algorithm", val("Longest Common Subsequence"));
-    result.set("subsequence", val(subsequence));
-    result.set("length", val((int)subsequence.length()));
-    result.set("text1Length", val(cont1));
-    result.set("text2Length", val(cont2));
-    result.set("similarity", val(similarity));
-    
-    return result;
-}
-
-string PreprocesarTexto(string text) {
-    int contador = 0;
-    return LimpiarTexto(text, contador);
 }
 
 // ============================================================================
