@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { BookOpen, Check, Loader2 } from 'lucide-react';
+import { useState, useEffect } from "react";
+import { BookOpen, Check, Loader2 } from "lucide-react";
 
 export default function BookGallery({ onCompare }) {
   const [books, setBooks] = useState([]);
@@ -17,19 +17,27 @@ export default function BookGallery({ onCompare }) {
     const exampleBooks = [
       {
         id: 1,
-        title: 'Resonance in Singing and Speaking',
-        author: 'Thomas Fillebrown',
-        cover: '/assets/covers/Resonance-in-Singing-and-Speaking.jpg',
-        textFile: '/assets/texts/texts/Resonance-in-Singing-and-Speaking.txt',
-        year: 2006
+        title: "Resonance in Singing and Speaking",
+        author: "Thomas Fillebrown",
+        cover: "/assets/covers/Resonance-in-Singing-and-Speaking.jpg",
+        textFile: "/assets/texts/Resonance-in-Singing-and-Speaking.txt",
+        year: 2006,
       },
       {
         id: 2,
-        title: 'Dorothy and the Wizard in Oz',
-        author: 'L. Frank Baum',
-        cover: '/assets/covers/Dorothy-and-the-Wizard-in-Oz.jpg',
-        textFile: '/assets/texts/texts/Dorothy-and-the-Wizard-in-Oz.txt',
-        year: 1967
+        title: "Dorothy and the Wizard in Oz",
+        author: "L. Frank Baum",
+        cover: "/assets/covers/Dorothy-and-the-Wizard-in-Oz.jpg",
+        textFile: "/assets/texts/Dorothy-and-the-Wizard-in-Oz.txt",
+        year: 1967,
+      },
+      {
+        id: 3,
+        title: "The Yellow Wallpaper",
+        author: "Charlotte Perkins Gilman",
+        cover: "/assets/covers/The-Yellow-Wallpaper.jpg",
+        textFile: "/assets/texts/The-Yellow-Wallpaper.txt",
+        year: 1967,
       },
     ];
 
@@ -37,8 +45,8 @@ export default function BookGallery({ onCompare }) {
   };
 
   const toggleBookSelection = (book) => {
-    if (selectedBooks.find(b => b.id === book.id)) {
-      setSelectedBooks(selectedBooks.filter(b => b.id !== book.id));
+    if (selectedBooks.find((b) => b.id === book.id)) {
+      setSelectedBooks(selectedBooks.filter((b) => b.id !== book.id));
     } else {
       if (selectedBooks.length < 2) {
         setSelectedBooks([...selectedBooks, book]);
@@ -51,7 +59,7 @@ export default function BookGallery({ onCompare }) {
 
   const handleCompare = async () => {
     if (selectedBooks.length !== 2) {
-      alert('Selecciona exactamente 2 libros para comparar');
+      alert("Selecciona exactamente 2 libros para comparar");
       return;
     }
 
@@ -59,19 +67,19 @@ export default function BookGallery({ onCompare }) {
     try {
       await onCompare(selectedBooks[0], selectedBooks[1]);
     } catch (error) {
-      console.error('Error al comparar:', error);
-      alert('Error al comparar libros');
+      console.error("Error al comparar:", error);
+      alert("Error al comparar libros");
     } finally {
       setLoading(false);
     }
   };
 
   const isSelected = (bookId) => {
-    return selectedBooks.find(b => b.id === bookId) !== undefined;
+    return selectedBooks.find((b) => b.id === bookId) !== undefined;
   };
 
   const getSelectionOrder = (bookId) => {
-    const index = selectedBooks.findIndex(b => b.id === bookId);
+    const index = selectedBooks.findIndex((b) => b.id === bookId);
     return index >= 0 ? index + 1 : null;
   };
 
@@ -121,7 +129,7 @@ export default function BookGallery({ onCompare }) {
                 relative cursor-pointer group
                 bg-white rounded-lg shadow-md overflow-hidden
                 transition-all duration-300 transform hover:scale-105 hover:shadow-xl
-                ${selected ? 'ring-4 ring-blue-500 scale-105' : ''}
+                ${selected ? "ring-4 ring-blue-500 scale-105" : ""}
               `}
             >
               {/* Cover Image */}
@@ -132,15 +140,15 @@ export default function BookGallery({ onCompare }) {
                   className="w-full h-full object-cover"
                   onError={(e) => {
                     // Fallback si no existe la imagen
-                    e.target.style.display = 'none';
-                    e.target.nextSibling.style.display = 'flex';
+                    e.target.style.display = "none";
+                    e.target.nextSibling.style.display = "flex";
                   }}
                 />
-                
+
                 {/* Fallback cuando no hay imagen */}
-                <div 
+                <div
                   className="absolute inset-0 hidden items-center justify-center bg-gradient-to-br from-blue-500 to-purple-600"
-                  style={{ display: 'none' }}
+                  style={{ display: "none" }}
                 >
                   <BookOpen className="h-20 w-20 text-white opacity-50" />
                 </div>
@@ -183,7 +191,9 @@ export default function BookGallery({ onCompare }) {
       {/* Selected Books Preview */}
       {selectedBooks.length > 0 && (
         <div className="bg-blue-50 rounded-lg p-4">
-          <h3 className="font-semibold text-gray-900 mb-3">Libros Seleccionados:</h3>
+          <h3 className="font-semibold text-gray-900 mb-3">
+            Libros Seleccionados:
+          </h3>
           <div className="flex flex-wrap gap-3">
             {selectedBooks.map((book, index) => (
               <div

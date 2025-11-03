@@ -1,47 +1,4 @@
-﻿The Project Gutenberg eBook of Dorothy and the Wizard in Oz
-    
-
-
-Title: Dorothy and the Wizard in Oz
-
-Author: L. Frank Baum
-
-Illustrator: John R. Neill
-
-Release date: September 10, 2007 [eBook #22566]
-
-Language: English
-
-Credits: Produced by Chris Curnow, Joseph Cooper, Janet Blenkinship
-        and the Online Distributed Proofreading Team at
-        http://www.pgdp.net
-
-
-*** START OF THE PROJECT GUTENBERG EBOOK DOROTHY AND THE WIZARD IN OZ ***
-
-
-
-
-Produced by Chris Curnow, Joseph Cooper, Janet Blenkinship
-and the Online Distributed Proofreading Team at
-http://www.pgdp.net
-
-
-
-
-
-
-
-
-
-  [Illustration: DOROTHY AND THE WIZARD]
-
-  [Illustration: PICKING THE PRINCESS.]
-
-
-
-
-  DOROTHY AND THE WIZARD IN OZ
+﻿  DOROTHY AND THE WIZARD IN OZ
 
   BY
 
@@ -54,7 +11,7 @@ http://www.pgdp.net
   BOOKS OF WONDER WILLIAM MORROW & CO., INC. NEW YORK
 
 
-  [Illustration]
+  []
 
 
   COPYRIGHT 1908 BY L. FRANK BAUM
@@ -65,7 +22,7 @@ http://www.pgdp.net
          *       *       *       *       *
 
 
-  [Illustration]
+  []
 
 
   DEDICATED TO HARRIET A. B. NEAL.
@@ -189,7 +146,7 @@ CHAPTER                                                             PAGE
   20  ZEB RETURNS TO THE RANCH                                         251
 
 
-[Illustration]
+[]
 
 
 
@@ -298,7 +255,7 @@ shake?"
 "Yes; but we're used to such things in California," he replied. "They
 don't scare us much."
 
-[Illustration: DOROTHY POKED THE BOY WITH HER PARASOL.]
+[: DOROTHY POKED THE BOY WITH HER PARASOL.]
 
 "The conductor said it was the worst quake he ever knew."
 
@@ -386,9 +343,9 @@ little girl lost consciousness. Zeb, being a boy, did not faint, but he
 was badly frightened, and clung to the buggy seat with a tight grip,
 expecting every moment would be his last.
 
-[Illustration]
+[]
 
-[Illustration]
+[]
 
 
 
@@ -455,7 +412,7 @@ together, and her appearance seemed to add to his fright.
 
 "I--I don't s-s-see any-thing funny--'bout it!" he stammered.
 
-[Illustration: HORSE, BUGGY AND ALL FELL SLOWLY.]
+[: HORSE, BUGGY AND ALL FELL SLOWLY.]
 
 Just then the buggy tipped slowly over upon its side, the body of the
 horse tipping also. But they continued to fall, all together, and the
@@ -681,7 +638,7 @@ with a sniff at the rebuke of his young master; "and just at present no
 one can tell whether there are any oats in this queer country or not. If
 there are, they are liable to be glass oats!"
 
-[Illustration: "COME ON, JIM! IT'S ALL RIGHT."]
+[: "COME ON, JIM! IT'S ALL RIGHT."]
 
 "Oh, no!" exclaimed Dorothy. "I can see plenty of nice gardens and
 fields down below us, at the edge of this city. But I wish we could find
@@ -780,7 +737,7 @@ then that, until they came to an open square in the center of which was
 a big glass palace having a central dome and four tall spires on each
 corner.
 
-[Illustration]
+[]
 
 
 
@@ -1124,7 +1081,7 @@ continued the Prince.
 will explain to you much better than I can here the mysteries of our
 Vegetable Kingdom."
 
-[Illustration: THE WIZARD CUT THE SORCERER EXACTLY IN TWO.]
+[: THE WIZARD CUT THE SORCERER EXACTLY IN TWO.]
 
 
 
@@ -1568,7 +1525,7 @@ caught on the bent pin; so the little man drew in the string and, sure
 enough, the fish came with it and was landed safely on the shore,
 where it began to flop around in great excitement.
 
-[Illustration: IN THE GARDEN OF THE MANGABOOS.]
+[: IN THE GARDEN OF THE MANGABOOS.]
 
 The fish was fat and round, and its scales glistened like beautifully
 cut jewels set close together; but there was no time to examine it
@@ -1664,7 +1621,7 @@ nestling comfortably beside his big, boney body. Then the boy returned
 to one of the upper rooms, and in spite of the hardness of the glass
 bench was soon deep in slumberland.
 
-[Illustration]
+[]
 
 
 
@@ -1770,7 +1727,7 @@ set a lantern upon each of their heads.
 "Don't laugh," he whispered to them, "or you will spoil the effect of my
 magic."
 
-[Illustration: "NOW, PRINCESS," EXCLAIMED THE WIZARD.]
+[: "NOW, PRINCESS," EXCLAIMED THE WIZARD.]
 
 Then, with much dignity and a look of vast importance upon his wrinkled
 face, the Wizard got out his match-box and lighted the two lanterns. The
@@ -1885,7 +1842,7 @@ Eureka out, and although the field of battle was thickly covered with
 mashed and disabled Mangaboos, our animal friends had to give up at last
 and allow themselves to be driven to the mountain.
 
-[Illustration]
+[]
 
 
 
@@ -1953,7 +1910,7 @@ opposing him in this they stood back in silence until he had made a
 good-sized hole in the barrier, when by order of the Princess they all
 sprang forward and thrust out their sharp thorns.
 
-[Illustration: THROUGH THE BLACK PIT.]
+[: THROUGH THE BLACK PIT.]
 
 Dorothy hopped inside the opening to escape being pricked, and Zeb and
 the Wizard, after enduring a few stabs from the thorns, were glad to
@@ -2029,7 +1986,7 @@ assurance of a quick relief from the dark passage, and in a few moments
 more they had emerged from the mountain and found themselves face to
 face with a new and charming country.
 
-[Illustration]
+[]
 
 
 
@@ -2133,7 +2090,7 @@ Wizard could not discover a single piglet.
 
 "Why, right beside you," spoke a tiny voice. "Can't you see us?"
 
-[Illustration: "ARE THERE REALLY PEOPLE IN THIS ROOM?"]
+[: "ARE THERE REALLY PEOPLE IN THIS ROOM?"]
 
 "No," answered the little man, in a puzzled tone.
 
@@ -2276,7 +2233,7 @@ the bears cannot find us to eat us up. But now, good wanderers, your
 luncheon is on the table, so please sit down and eat as much as you
 like."
 
-[Illustration]
+[]
 
 
 
@@ -2496,7 +2453,7 @@ of Voe, and do not seem to know our ways; so I will try to save you."
 The next moment a broad-leaved plant was jerked from the ground where it
 grew and held suspended in the air before the Wizard.
 
-[Illustration: ESCAPING THE INVISIBLE BEARS.]
+[: ESCAPING THE INVISIBLE BEARS.]
 
 "Sir," said the voice, "you must rub these leaves upon the soles of
 all your feet, and then you will be able to walk upon the water without
@@ -2603,7 +2560,7 @@ of the seat, and that saved her. She squeezed the kitten, though, until
 it screeched; and then the old cab-horse made several curious sounds
 that led the little girl to suspect he was laughing at them all.
 
-[Illustration]
+[]
 
 
 
@@ -2729,9 +2686,9 @@ grade of Rustles for ladies' silk gowns."
 "I thought so," said the Wizard, with a sigh. "May we examine some of
 these articles?"
 
-[Illustration: THE CLOUD FAIRIES.]
+[: THE CLOUD FAIRIES.]
 
-[Illustration: THE BRAIDED MAN.]
+[: THE BRAIDED MAN.]
 
 "Yes, indeed; come into my shop, please," and the braided man turned and
 led the way into a smaller cave, where he evidently lived. Here, on a
@@ -2798,7 +2755,7 @@ forehead significantly, to indicate that he thought the poor man was
 crazy. So they politely bade him good day, and went back to the outer
 cavern to resume their journey.
 
-[Illustration]
+[]
 
 
 
@@ -3067,7 +3024,7 @@ its wings and arms so that it could not move. Then, having tied the
 wooden creature securely, the boy buckled the strap and tossed his
 prisoner into the buggy. By that time the others had all retired.
 
-[Illustration]
+[]
 
 
 
@@ -3096,7 +3053,7 @@ fired all of his twelve bullets he had caused no damage to the enemy
 except to stun a few by the noise, and so he was no nearer to victory
 than in the beginning of the fray.
 
-[Illustration: THE WIZARD FIRED INTO THE THRONG.]
+[: THE WIZARD FIRED INTO THE THRONG.]
 
 "What shall we do now?" asked Dorothy, anxiously.
 
@@ -3310,7 +3267,7 @@ For answer Zeb began to unfasten Jim's harness, strap by strap, and
 to buckle one piece to another until he had made a long leather strip
 that would reach to the ground.
 
-[Illustration: THE FIGHT WITH THE GARGOYLES.]
+[: THE FIGHT WITH THE GARGOYLES.]
 
 "I can climb down that, all right," he said.
 
@@ -3365,7 +3322,7 @@ The other four wings were then fastened to the buggy, two on each side,
 for the buggy must bear the weight of the children and the Wizard as it
 flew through the air.
 
-[Illustration: JIM FLUTTERED AND FLOUNDERED THROUGH THE AIR.]
+[: JIM FLUTTERED AND FLOUNDERED THROUGH THE AIR.]
 
 These preparations had not consumed a great deal of time, but the
 sleeping Gargoyles were beginning to wake up and move around, and soon
@@ -3408,7 +3365,7 @@ collecting a band to pursue the escaping prisoners; so that when Dorothy
 happened to look back she saw them coming in a great cloud that almost
 darkened the sky.
 
-[Illustration]
+[]
 
 
 
@@ -3475,7 +3432,7 @@ they had started, hours before.
 "Anyhow," said Dorothy, "we've 'scaped those awful Gurgles, and that's
 _one_ comfort!"
 
-[Illustration: "WHY IT'S A DRAGON!"]
+[: "WHY IT'S A DRAGON!"]
 
 "Probably the Gargoyles are still busy trying to put out the fire,"
 returned the Wizard. "But even if they succeeded in doing that it
@@ -3657,7 +3614,7 @@ hurried along it as fast as they could go, for they had no idea when the
 mother dragon would be back and were very anxious not to make her
 acquaintance.
 
-[Illustration]
+[]
 
 
 
@@ -3987,7 +3944,7 @@ and no warning. One moment Dorothy sat beside them with the kitten in
 her lap, and a moment later the horse, the piglets, the Wizard and the
 boy were all that remained in the underground prison.
 
-[Illustration: DOROTHY MADE THE SIGNAL.]
+[: DOROTHY MADE THE SIGNAL.]
 
 "I believe we will soon follow her," announced the Wizard, in a tone of
 great relief; "for I know something about the magic of the fairyland
@@ -4023,7 +3980,7 @@ strangers.
 courtyard and drew the buggy along the jewelled driveway to the great
 entrance of the royal palace.
 
-[Illustration]
+[]
 
 
 
@@ -4280,7 +4237,7 @@ soft, stuffed hands of his old friend.
 you gave me the best brains in the world, for I can think with them day
 and night, when all other brains are fast asleep."
 
-[Illustration: DOROTHY AND OZMA.]
+[: DOROTHY AND OZMA.]
 
 "How long did you rule the Emerald City, after I left here?" was the
 next question.
@@ -4370,7 +4327,7 @@ one less thoroughly educated; so they straightway forgot him and joined
 in a merry conversation that kept them well amused until bed-time
 arrived.
 
-[Illustration]
+[]
 
 
 
@@ -4450,7 +4407,7 @@ a head. The ends of the wooden legs were shod with plates of solid gold,
 and the saddle of the Princess Ozma, which was of red leather set with
 sparkling diamonds, was strapped to the clumsy body.
 
-[Illustration: "FOR GOODNESS SAKE, WHAT SORT OF A BEING ARE YOU?"]
+[: "FOR GOODNESS SAKE, WHAT SORT OF A BEING ARE YOU?"]
 
 Jim's eyes stuck out as much as those of the Sawhorse, and he stared at
 the creature with his ears erect and his long head drawn back until it
@@ -4659,9 +4616,9 @@ in good spirits.
 "Breakfast is served, dear," she said, "and I am hungry. So don't let us
 keep it waiting a single minute."
 
-[Illustration]
+[]
 
-[Illustration: JIM STOOD TREMBLING LIKE A LEAF.]
+[: JIM STOOD TREMBLING LIKE A LEAF.]
 
 
 
@@ -4853,7 +4810,7 @@ Jim.
 "Go!" cried Zeb; and at the word the two horses leaped forward and the
 race was begun.
 
-[Illustration: THE WIZARD TOOK A PIGLET FROM OZMA'S HAIR.]
+[: THE WIZARD TOOK A PIGLET FROM OZMA'S HAIR.]
 
 Jim's big hoofs pounded away at a great rate, and although he did not
 look very graceful he ran in a way to do credit to his Kentucky
@@ -4865,7 +4822,7 @@ and the wooden animal returned to the starting place and was being
 lustily cheered by the Ozites before Jim came panting up to the canopy
 where the Princess and her friends were seated.
 
-[Illustration: THE HUNGRY TIGER TEACHES JIM A LESSON.]
+[: THE HUNGRY TIGER TEACHES JIM A LESSON.]
 
 I am sorry to record the fact that Jim was not only ashamed of his
 defeat but for a moment lost control of his temper. As he looked at the
@@ -4918,7 +4875,7 @@ account whatever. It's no place for us, Zeb."
 "It's lucky we got here, though," said the boy; and Jim thought of the
 dark cave, and agreed with him.
 
-[Illustration]
+[]
 
 
 
@@ -5068,7 +5025,7 @@ Public Accuser, because he is so learned that no one can deceive him."
 
 "Who will be the jury?" asked the Tin Woodman.
 
-[Illustration: PORTRAIT OF THE WIZARD OF OZ.]
+[: PORTRAIT OF THE WIZARD OF OZ.]
 
 "There ought to be several animals on the jury," said Ozma, "because
 animals understand each other better than we people understand them.
@@ -5203,7 +5160,7 @@ creature and eat it up----"
 because since the time of that interview there is no piglet to be found
 anywhere."
 
-[Illustration: EUREKA IN COURT.]
+[: EUREKA IN COURT.]
 
 "I suppose, if the cat had been gone, instead of the piglet, your mind's
 eye would see the piglet eating the cat," suggested the Scarecrow.
@@ -5409,7 +5366,7 @@ much obliged to you."
 "Ozma can do it, easily," replied Dorothy. "Tomorrow morning I'll go to
 Kansas and you can go to Californy."
 
-[Illustration: "I'M MUCH OBLIGED FOR ALL YOUR KINDNESS."]
+[: "I'M MUCH OBLIGED FOR ALL YOUR KINDNESS."]
 
 That last evening was so delightful that the boy will never forget it as
 long as he lives. They were all together (except Eureka) in the
@@ -5465,364 +5422,4 @@ world have you been, my lad?"
 
 The End
 
-[Illustration]
-
-
-
-
-
-End of Project Gutenberg's Dorothy and the Wizard in Oz, by L. Frank Baum
-
-
-
-*** END OF THE PROJECT GUTENBERG EBOOK DOROTHY AND THE WIZARD IN OZ ***
-
-
-    
-
-Updated editions will replace the previous one—the old editions will
-be renamed.
-
-Creating the works from print editions not protected by U.S. copyright
-law means that no one owns a United States copyright in these works,
-so the Foundation (and you!) can copy and distribute it in the United
-States without permission and without paying copyright
-royalties. Special rules, set forth in the General Terms of Use part
-of this license, apply to copying and distributing Project
-Gutenberg™ electronic works to protect the PROJECT GUTENBERG™
-concept and trademark. Project Gutenberg is a registered trademark,
-and may not be used if you charge for an eBook, except by following
-the terms of the trademark license, including paying royalties for use
-of the Project Gutenberg trademark. If you do not charge anything for
-copies of this eBook, complying with the trademark license is very
-easy. You may use this eBook for nearly any purpose such as creation
-of derivative works, reports, performances and research. Project
-Gutenberg eBooks may be modified and printed and given away—you may
-do practically ANYTHING in the United States with eBooks not protected
-by U.S. copyright law. Redistribution is subject to the trademark
-license, especially commercial redistribution.
-
-
-START: FULL LICENSE
-
-THE FULL PROJECT GUTENBERG LICENSE
-
-PLEASE READ THIS BEFORE YOU DISTRIBUTE OR USE THIS WORK
-
-To protect the Project Gutenberg™ mission of promoting the free
-distribution of electronic works, by using or distributing this work
-(or any other work associated in any way with the phrase “Project
-Gutenberg”), you agree to comply with all the terms of the Full
-Project Gutenberg™ License available with this file or online at
-www.gutenberg.org/license.
-
-Section 1. General Terms of Use and Redistributing Project Gutenberg™
-electronic works
-
-1.A. By reading or using any part of this Project Gutenberg™
-electronic work, you indicate that you have read, understand, agree to
-and accept all the terms of this license and intellectual property
-(trademark/copyright) agreement. If you do not agree to abide by all
-the terms of this agreement, you must cease using and return or
-destroy all copies of Project Gutenberg™ electronic works in your
-possession. If you paid a fee for obtaining a copy of or access to a
-Project Gutenberg™ electronic work and you do not agree to be bound
-by the terms of this agreement, you may obtain a refund from the person
-or entity to whom you paid the fee as set forth in paragraph 1.E.8.
-
-1.B. “Project Gutenberg” is a registered trademark. It may only be
-used on or associated in any way with an electronic work by people who
-agree to be bound by the terms of this agreement. There are a few
-things that you can do with most Project Gutenberg™ electronic works
-even without complying with the full terms of this agreement. See
-paragraph 1.C below. There are a lot of things you can do with Project
-Gutenberg™ electronic works if you follow the terms of this
-agreement and help preserve free future access to Project Gutenberg™
-electronic works. See paragraph 1.E below.
-
-1.C. The Project Gutenberg Literary Archive Foundation (“the
-Foundation” or PGLAF), owns a compilation copyright in the collection
-of Project Gutenberg™ electronic works. Nearly all the individual
-works in the collection are in the public domain in the United
-States. If an individual work is unprotected by copyright law in the
-United States and you are located in the United States, we do not
-claim a right to prevent you from copying, distributing, performing,
-displaying or creating derivative works based on the work as long as
-all references to Project Gutenberg are removed. Of course, we hope
-that you will support the Project Gutenberg™ mission of promoting
-free access to electronic works by freely sharing Project Gutenberg™
-works in compliance with the terms of this agreement for keeping the
-Project Gutenberg™ name associated with the work. You can easily
-comply with the terms of this agreement by keeping this work in the
-same format with its attached full Project Gutenberg™ License when
-you share it without charge with others.
-
-1.D. The copyright laws of the place where you are located also govern
-what you can do with this work. Copyright laws in most countries are
-in a constant state of change. If you are outside the United States,
-check the laws of your country in addition to the terms of this
-agreement before downloading, copying, displaying, performing,
-distributing or creating derivative works based on this work or any
-other Project Gutenberg™ work. The Foundation makes no
-representations concerning the copyright status of any work in any
-country other than the United States.
-
-1.E. Unless you have removed all references to Project Gutenberg:
-
-1.E.1. The following sentence, with active links to, or other
-immediate access to, the full Project Gutenberg™ License must appear
-prominently whenever any copy of a Project Gutenberg™ work (any work
-on which the phrase “Project Gutenberg” appears, or with which the
-phrase “Project Gutenberg” is associated) is accessed, displayed,
-performed, viewed, copied or distributed:
-
-    This eBook is for the use of anyone anywhere in the United States and most
-    other parts of the world at no cost and with almost no restrictions
-    whatsoever. You may copy it, give it away or re-use it under the terms
-    of the Project Gutenberg License included with this eBook or online
-    at www.gutenberg.org. If you
-    are not located in the United States, you will have to check the laws
-    of the country where you are located before using this eBook.
-  
-1.E.2. If an individual Project Gutenberg™ electronic work is
-derived from texts not protected by U.S. copyright law (does not
-contain a notice indicating that it is posted with permission of the
-copyright holder), the work can be copied and distributed to anyone in
-the United States without paying any fees or charges. If you are
-redistributing or providing access to a work with the phrase “Project
-Gutenberg” associated with or appearing on the work, you must comply
-either with the requirements of paragraphs 1.E.1 through 1.E.7 or
-obtain permission for the use of the work and the Project Gutenberg™
-trademark as set forth in paragraphs 1.E.8 or 1.E.9.
-
-1.E.3. If an individual Project Gutenberg™ electronic work is posted
-with the permission of the copyright holder, your use and distribution
-must comply with both paragraphs 1.E.1 through 1.E.7 and any
-additional terms imposed by the copyright holder. Additional terms
-will be linked to the Project Gutenberg™ License for all works
-posted with the permission of the copyright holder found at the
-beginning of this work.
-
-1.E.4. Do not unlink or detach or remove the full Project Gutenberg™
-License terms from this work, or any files containing a part of this
-work or any other work associated with Project Gutenberg™.
-
-1.E.5. Do not copy, display, perform, distribute or redistribute this
-electronic work, or any part of this electronic work, without
-prominently displaying the sentence set forth in paragraph 1.E.1 with
-active links or immediate access to the full terms of the Project
-Gutenberg™ License.
-
-1.E.6. You may convert to and distribute this work in any binary,
-compressed, marked up, nonproprietary or proprietary form, including
-any word processing or hypertext form. However, if you provide access
-to or distribute copies of a Project Gutenberg™ work in a format
-other than “Plain Vanilla ASCII” or other format used in the official
-version posted on the official Project Gutenberg™ website
-(www.gutenberg.org), you must, at no additional cost, fee or expense
-to the user, provide a copy, a means of exporting a copy, or a means
-of obtaining a copy upon request, of the work in its original “Plain
-Vanilla ASCII” or other form. Any alternate format must include the
-full Project Gutenberg™ License as specified in paragraph 1.E.1.
-
-1.E.7. Do not charge a fee for access to, viewing, displaying,
-performing, copying or distributing any Project Gutenberg™ works
-unless you comply with paragraph 1.E.8 or 1.E.9.
-
-1.E.8. You may charge a reasonable fee for copies of or providing
-access to or distributing Project Gutenberg™ electronic works
-provided that:
-
-    • You pay a royalty fee of 20% of the gross profits you derive from
-        the use of Project Gutenberg™ works calculated using the method
-        you already use to calculate your applicable taxes. The fee is owed
-        to the owner of the Project Gutenberg™ trademark, but he has
-        agreed to donate royalties under this paragraph to the Project
-        Gutenberg Literary Archive Foundation. Royalty payments must be paid
-        within 60 days following each date on which you prepare (or are
-        legally required to prepare) your periodic tax returns. Royalty
-        payments should be clearly marked as such and sent to the Project
-        Gutenberg Literary Archive Foundation at the address specified in
-        Section 4, “Information about donations to the Project Gutenberg
-        Literary Archive Foundation.”
-    
-    • You provide a full refund of any money paid by a user who notifies
-        you in writing (or by e-mail) within 30 days of receipt that s/he
-        does not agree to the terms of the full Project Gutenberg™
-        License. You must require such a user to return or destroy all
-        copies of the works possessed in a physical medium and discontinue
-        all use of and all access to other copies of Project Gutenberg™
-        works.
-    
-    • You provide, in accordance with paragraph 1.F.3, a full refund of
-        any money paid for a work or a replacement copy, if a defect in the
-        electronic work is discovered and reported to you within 90 days of
-        receipt of the work.
-    
-    • You comply with all other terms of this agreement for free
-        distribution of Project Gutenberg™ works.
-    
-
-1.E.9. If you wish to charge a fee or distribute a Project
-Gutenberg™ electronic work or group of works on different terms than
-are set forth in this agreement, you must obtain permission in writing
-from the Project Gutenberg Literary Archive Foundation, the manager of
-the Project Gutenberg™ trademark. Contact the Foundation as set
-forth in Section 3 below.
-
-1.F.
-
-1.F.1. Project Gutenberg volunteers and employees expend considerable
-effort to identify, do copyright research on, transcribe and proofread
-works not protected by U.S. copyright law in creating the Project
-Gutenberg™ collection. Despite these efforts, Project Gutenberg™
-electronic works, and the medium on which they may be stored, may
-contain “Defects,” such as, but not limited to, incomplete, inaccurate
-or corrupt data, transcription errors, a copyright or other
-intellectual property infringement, a defective or damaged disk or
-other medium, a computer virus, or computer codes that damage or
-cannot be read by your equipment.
-
-1.F.2. LIMITED WARRANTY, DISCLAIMER OF DAMAGES - Except for the “Right
-of Replacement or Refund” described in paragraph 1.F.3, the Project
-Gutenberg Literary Archive Foundation, the owner of the Project
-Gutenberg™ trademark, and any other party distributing a Project
-Gutenberg™ electronic work under this agreement, disclaim all
-liability to you for damages, costs and expenses, including legal
-fees. YOU AGREE THAT YOU HAVE NO REMEDIES FOR NEGLIGENCE, STRICT
-LIABILITY, BREACH OF WARRANTY OR BREACH OF CONTRACT EXCEPT THOSE
-PROVIDED IN PARAGRAPH 1.F.3. YOU AGREE THAT THE FOUNDATION, THE
-TRADEMARK OWNER, AND ANY DISTRIBUTOR UNDER THIS AGREEMENT WILL NOT BE
-LIABLE TO YOU FOR ACTUAL, DIRECT, INDIRECT, CONSEQUENTIAL, PUNITIVE OR
-INCIDENTAL DAMAGES EVEN IF YOU GIVE NOTICE OF THE POSSIBILITY OF SUCH
-DAMAGE.
-
-1.F.3. LIMITED RIGHT OF REPLACEMENT OR REFUND - If you discover a
-defect in this electronic work within 90 days of receiving it, you can
-receive a refund of the money (if any) you paid for it by sending a
-written explanation to the person you received the work from. If you
-received the work on a physical medium, you must return the medium
-with your written explanation. The person or entity that provided you
-with the defective work may elect to provide a replacement copy in
-lieu of a refund. If you received the work electronically, the person
-or entity providing it to you may choose to give you a second
-opportunity to receive the work electronically in lieu of a refund. If
-the second copy is also defective, you may demand a refund in writing
-without further opportunities to fix the problem.
-
-1.F.4. Except for the limited right of replacement or refund set forth
-in paragraph 1.F.3, this work is provided to you ‘AS-IS’, WITH NO
-OTHER WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
-LIMITED TO WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY PURPOSE.
-
-1.F.5. Some states do not allow disclaimers of certain implied
-warranties or the exclusion or limitation of certain types of
-damages. If any disclaimer or limitation set forth in this agreement
-violates the law of the state applicable to this agreement, the
-agreement shall be interpreted to make the maximum disclaimer or
-limitation permitted by the applicable state law. The invalidity or
-unenforceability of any provision of this agreement shall not void the
-remaining provisions.
-
-1.F.6. INDEMNITY - You agree to indemnify and hold the Foundation, the
-trademark owner, any agent or employee of the Foundation, anyone
-providing copies of Project Gutenberg™ electronic works in
-accordance with this agreement, and any volunteers associated with the
-production, promotion and distribution of Project Gutenberg™
-electronic works, harmless from all liability, costs and expenses,
-including legal fees, that arise directly or indirectly from any of
-the following which you do or cause to occur: (a) distribution of this
-or any Project Gutenberg™ work, (b) alteration, modification, or
-additions or deletions to any Project Gutenberg™ work, and (c) any
-Defect you cause.
-
-Section 2. Information about the Mission of Project Gutenberg™
-
-Project Gutenberg™ is synonymous with the free distribution of
-electronic works in formats readable by the widest variety of
-computers including obsolete, old, middle-aged and new computers. It
-exists because of the efforts of hundreds of volunteers and donations
-from people in all walks of life.
-
-Volunteers and financial support to provide volunteers with the
-assistance they need are critical to reaching Project Gutenberg™’s
-goals and ensuring that the Project Gutenberg™ collection will
-remain freely available for generations to come. In 2001, the Project
-Gutenberg Literary Archive Foundation was created to provide a secure
-and permanent future for Project Gutenberg™ and future
-generations. To learn more about the Project Gutenberg Literary
-Archive Foundation and how your efforts and donations can help, see
-Sections 3 and 4 and the Foundation information page at www.gutenberg.org.
-
-Section 3. Information about the Project Gutenberg Literary Archive Foundation
-
-The Project Gutenberg Literary Archive Foundation is a non-profit
-501(c)(3) educational corporation organized under the laws of the
-state of Mississippi and granted tax exempt status by the Internal
-Revenue Service. The Foundation’s EIN or federal tax identification
-number is 64-6221541. Contributions to the Project Gutenberg Literary
-Archive Foundation are tax deductible to the full extent permitted by
-U.S. federal laws and your state’s laws.
-
-The Foundation’s business office is located at 809 North 1500 West,
-Salt Lake City, UT 84116, (801) 596-1887. Email contact links and up
-to date contact information can be found at the Foundation’s website
-and official page at www.gutenberg.org/contact
-
-Section 4. Information about Donations to the Project Gutenberg
-Literary Archive Foundation
-
-Project Gutenberg™ depends upon and cannot survive without widespread
-public support and donations to carry out its mission of
-increasing the number of public domain and licensed works that can be
-freely distributed in machine-readable form accessible by the widest
-array of equipment including outdated equipment. Many small donations
-($1 to $5,000) are particularly important to maintaining tax exempt
-status with the IRS.
-
-The Foundation is committed to complying with the laws regulating
-charities and charitable donations in all 50 states of the United
-States. Compliance requirements are not uniform and it takes a
-considerable effort, much paperwork and many fees to meet and keep up
-with these requirements. We do not solicit donations in locations
-where we have not received written confirmation of compliance. To SEND
-DONATIONS or determine the status of compliance for any particular state
-visit www.gutenberg.org/donate.
-
-While we cannot and do not solicit contributions from states where we
-have not met the solicitation requirements, we know of no prohibition
-against accepting unsolicited donations from donors in such states who
-approach us with offers to donate.
-
-International donations are gratefully accepted, but we cannot make
-any statements concerning tax treatment of donations received from
-outside the United States. U.S. laws alone swamp our small staff.
-
-Please check the Project Gutenberg web pages for current donation
-methods and addresses. Donations are accepted in a number of other
-ways including checks, online payments and credit card donations. To
-donate, please visit: www.gutenberg.org/donate.
-
-Section 5. General Information About Project Gutenberg™ electronic works
-
-Professor Michael S. Hart was the originator of the Project
-Gutenberg™ concept of a library of electronic works that could be
-freely shared with anyone. For forty years, he produced and
-distributed Project Gutenberg™ eBooks with only a loose network of
-volunteer support.
-
-Project Gutenberg™ eBooks are often created from several printed
-editions, all of which are confirmed as not protected by copyright in
-the U.S. unless a copyright notice is included. Thus, we do not
-necessarily keep eBooks in compliance with any particular paper
-edition.
-
-Most people start at our website which has the main PG search
-facility: www.gutenberg.org.
-
-This website includes information about Project Gutenberg™,
-including how to make donations to the Project Gutenberg Literary
-Archive Foundation, how to help produce our new eBooks, and how to
-subscribe to our email newsletter to hear about new eBooks.
-
-
+[]

@@ -1,30 +1,51 @@
 import { useState } from 'react';
-import { Library, ArrowLeft } from 'lucide-react';
+import { Library, ArrowLeft, Settings } from 'lucide-react';
 import BookGallery from '../components/BookGallery';
 import ComparisonResults from '../components/ComparisonResults';
-import { compareLCSstr, compareLCS } from '../services/api';
+import { compareLCSstr, compareLCS, compareLCSstrChunks, compareLCSChunks } from '../services/api';
 
 export default function HomePage() {
   const [view, setView] = useState('library'); // 'library' | 'results'
   const [comparisonResults, setComparisonResults] = useState(null);
   const [selectedBooks, setSelectedBooks] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [useChunks, setUseChunks] = useState(true);
+  const [chunkSize, setChunkSize] = useState(5000);
+  const [showSettings, setShowSettings] = useState(false);
 
   const handleCompare = async (book1, book2) => {
     setLoading(true);
     try {
-      // Cargar los textos de los archivos
       const text1Response = await fetch(book1.textFile);
       const text2Response = await fetch(book2.textFile);
       
-      const text1 = await text1Response.text();
-      const text2 = await text2Response.text();
+      let text1 = await text1Response.text();
+      let text2 = await text2Response.text();
 
-      // Ejecutar ambos algoritmos en paralelo
-      const [lcstrResult, lcsResult] = await Promise.all([
-        compareLCSstr(text1, text2),
-        compareLCS(text1, text2)
-      ]);
+      console.log('Textos cargados, longitudes originales:', text1.length, text2.length);
+
+      let lcstrResult, lcsResult;
+
+      if (useChunks) {
+        // Usar procesamiento por chunks - puede manejar textos completos
+        console.log('Usando procesamiento por chunks, tamaño:', chunkSize);
+        
+        [lcstrResult, lcsResult] = await Promise.all([
+          compareLCSstrChunks(text1, text2, chunkSize),
+          compareLCSChunks(text1, text2, chunkSize)
+        ]);
+      } else {
+        // Modo simple - limitar tamaño
+        const MAX_LENGTH = 5000;
+        text1 = text1.substring(0, MAX_LENGTH);
+        text2 = text2.substring(0, MAX_LENGTH);
+        console.log('Modo simple, textos limitados a:', text1.length, text2.length);
+        
+        [lcstrResult, lcsResult] = await Promise.all([
+          compareLCSstr(text1, text2),
+          compareLCS(text1, text2)
+        ]);
+      }
 
       setComparisonResults({
         lcstr: lcstrResult.result,
@@ -35,7 +56,7 @@ export default function HomePage() {
       setView('results');
     } catch (error) {
       console.error('Error al comparar libros:', error);
-      alert('Error al comparar los libros. Verifica que los archivos existan.');
+      alert('Error al comparar los libros: ' + error.message);
     } finally {
       setLoading(false);
     }
@@ -74,15 +95,98 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center space-x-4">
+              {/* Settings Button */}
+              {view === 'library' && (
+                <button
+                  onClick={() => setShowSettings(!showSettings)}
+                  className="flex items-center space-x-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors"
+                >
+                  <Settings className="h-4 w-4" />
+                  <span className="text-sm font-medium">Configuración</span>
+                </button>
+              )}
+              
               <div className="text-right">
                 <div className="text-xs text-gray-500">Algoritmos</div>
                 <div className="text-sm font-semibold text-gray-900">
-                  LCSstr & LCS
+                  LCSstr & LCS {useChunks && '(Chunks)'}
                 </div>
               </div>
             </div>
           </div>
+
+          {/* Settings Panel */}
+          {showSettings && view === 'library' && (
+            <div className="mt-4 p-4 bg-blue-50 rounded-lg border border-blue-200">
+              <h3 className="font-semibold text-gray-900 mb-3">Configuración de Procesamiento</h3>
+              
+              <div className="space-y-4">
+                {/* Toggle Chunks */}
+                <div className="flex items-center justify-between">
+                  <div>
+                    <label className="font-medium text-gray-900">Procesamiento por Chunks</label>
+                    <p className="text-sm text-gray-600">Permite analizar libros completos sin límite de tamaño</p>
+                  </div>
+                  <button
+                    onClick={() => setUseChunks(!useChunks)}
+                    className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
+                      useChunks ? 'bg-blue-600' : 'bg-gray-300'
+                    }`}
+                  >
+                    <span
+                      className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
+                        useChunks ? 'translate-x-6' : 'translate-x-1'
+                      }`}
+                    />
+                  </button>
+                </div>
+
+                {/* Chunk Size Slider */}
+                {useChunks && (
+                  <div>
+                    <label className="font-medium text-gray-900">
+                      Tamaño de Chunk: {chunkSize.toLocaleString()} caracteres
+                    </label>
+                    <p className="text-sm text-gray-600 mb-2">
+                      Chunks más pequeños = más rápido pero menos precisión
+                    </p>
+                    <input
+                      type="range"
+                      min="1000"
+                      max="20000"
+                      step="1000"
+                      value={chunkSize}
+                      onChange={(e) => setChunkSize(parseInt(e.target.value))}
+                      className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+                    />
+                    <div className="flex justify-between text-xs text-gray-500 mt-1">
+                      <span>1K (rápido)</span>
+                      <span>10K (balanceado)</span>
+                      <span>20K (preciso)</span>
+                    </div>
+                  </div>
+                )}
+
+                {/* Info */}
+                <div className="bg-white p-3 rounded border border-blue-200">
+                  <p className="text-sm text-gray-700">
+                    {useChunks ? (
+                      <>
+                        <strong>Modo Chunks:</strong> Los textos se dividen en fragmentos de {chunkSize.toLocaleString()} caracteres 
+                        para procesar libros completos sin límites de memoria.
+                      </>
+                    ) : (
+                      <>
+                        <strong>Modo Simple:</strong> Solo se analizan los primeros 5,000 caracteres de cada libro.
+                        Más rápido pero menos representativo.
+                      </>
+                    )}
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </header>
 
@@ -98,7 +202,9 @@ export default function HomePage() {
                     Analizando textos...
                   </h3>
                   <p className="text-sm text-gray-600">
-                    Ejecutando algoritmos de comparación
+                    {useChunks 
+                      ? `Procesando en chunks de ${chunkSize.toLocaleString()} caracteres`
+                      : 'Ejecutando algoritmos de comparación'}
                   </p>
                 </div>
               </div>

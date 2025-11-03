@@ -22,12 +22,23 @@ async function loadWasmModule() {
   wasmLoading = true;
   
   try {
-    const wasmPath = path.join(__dirname, '../../wasm/text_comparison.js');
+    const wasmPath = path.join(__dirname, '../../wasm/text_comparison.mjs');
     const wasmUrl = pathToFileURL(wasmPath).href;
-    console.log('[*] Cargando módulo WASM desde:', wasmUrl);
+    console.log('[*] Cargando módulo WASM ES6 desde:', wasmUrl);
     
+    // Importar el módulo ES6
     const { default: createModule } = await import(wasmUrl);
+    console.log('[*] Función createModule importada:', typeof createModule);
+    
+    // Inicializar el módulo WASM
     wasmModule = await createModule();
+    
+    console.log('[OK] Módulo WebAssembly inicializado correctamente');
+    const functions = Object.keys(wasmModule).filter(k => typeof wasmModule[k] === 'function');
+    console.log('[*] Funciones disponibles:', functions.slice(0, 20));
+    
+    wasmLoading = false;
+    return wasmModule;
     
     console.log('[OK] Módulo WebAssembly cargado exitosamente');
     console.log('[OK] Funciones disponibles:', Object.keys(wasmModule).filter(k => typeof wasmModule[k] === 'function').slice(0, 10));
@@ -239,6 +250,128 @@ export async function compareLCS(req, res) {
     }
   } catch (error) {
     console.error('Error en compareLCS:', error);
+    res.status(500).json({ 
+      error: error.message,
+      stack: process.env.NODE_ENV === 'development' ? error.stack : undefined
+    });
+  }
+}
+
+/**
+ * Compara textos usando Longest Common Substring con procesamiento por chunks (WASM)
+ */
+export async function compareLCSstrChunks(req, res) {
+  try {
+    const { text1, text2, chunkSize = 5000 } = req.body;
+
+    if (!text1 || !text2) {
+      return res.status(400).json({ error: 'Se requieren dos textos' });
+    }
+
+    console.log('[*] Comparando con LCSstr (chunks), longitudes:', text1.length, text2.length, 'chunk:', chunkSize);
+
+    const wasm = await loadWasmModule();
+    
+    if (!wasm || !wasm.CompararLCSstrPorChunks) {
+      console.error('[ERROR] WASM no disponible o función CompararLCSstrPorChunks no encontrada');
+      return res.status(500).json({ 
+        error: 'Módulo WASM no disponible',
+        details: 'La función de chunks no está disponible'
+      });
+    }
+
+    const startTime = Date.now();
+    
+    try {
+      const result = wasm.CompararLCSstrPorChunks(text1, text2, chunkSize);
+      const executionTime = (Date.now() - startTime) / 1000;
+      
+      console.log('[OK] LCSstr (chunks) completado en', executionTime, 'segundos');
+      console.log('[*] Chunks procesados:', result.chunksProcessed);
+      
+      // Convertir resultado de WASM a objeto JavaScript
+      const jsResult = {
+        algorithm: result.algorithm || 'Longest Common Substring (Chunks)',
+        substring: result.substring || '',
+        length: result.length || 0,
+        text1Length: result.text1Length || text1.length,
+        text2Length: result.text2Length || text2.length,
+        similarity: result.similarity || 0,
+        chunksProcessed: result.chunksProcessed || 0,
+        executionTime
+      };
+
+      res.json({
+        success: true,
+        result: jsResult
+      });
+    } catch (wasmError) {
+      console.error('[ERROR] Error ejecutando CompararLCSstrPorChunks:', wasmError);
+      throw wasmError;
+    }
+  } catch (error) {
+    console.error('Error en compareLCSstrChunks:', error);
+    res.status(500).json({ 
+      error: error.message,
+      stack: process.env.NODE_ENV === 'development' ? error.stack : undefined
+    });
+  }
+}
+
+/**
+ * Compara textos usando Longest Common Subsequence con procesamiento por chunks (WASM)
+ */
+export async function compareLCSChunks(req, res) {
+  try {
+    const { text1, text2, chunkSize = 5000 } = req.body;
+
+    if (!text1 || !text2) {
+      return res.status(400).json({ error: 'Se requieren dos textos' });
+    }
+
+    console.log('[*] Comparando con LCS (chunks), longitudes:', text1.length, text2.length, 'chunk:', chunkSize);
+
+    const wasm = await loadWasmModule();
+    
+    if (!wasm || !wasm.CompararLCSPorChunks) {
+      console.error('[ERROR] WASM no disponible o función CompararLCSPorChunks no encontrada');
+      return res.status(500).json({ 
+        error: 'Módulo WASM no disponible',
+        details: 'La función de chunks no está disponible'
+      });
+    }
+
+    const startTime = Date.now();
+    
+    try {
+      const result = wasm.CompararLCSPorChunks(text1, text2, chunkSize);
+      const executionTime = (Date.now() - startTime) / 1000;
+      
+      console.log('[OK] LCS (chunks) completado en', executionTime, 'segundos');
+      console.log('[*] Chunks procesados:', result.chunksProcessed);
+      
+      // Convertir resultado de WASM a objeto JavaScript
+      const jsResult = {
+        algorithm: result.algorithm || 'Longest Common Subsequence (Chunks)',
+        subsequence: result.subsequence || '',
+        length: result.length || 0,
+        text1Length: result.text1Length || text1.length,
+        text2Length: result.text2Length || text2.length,
+        similarity: result.similarity || 0,
+        chunksProcessed: result.chunksProcessed || 0,
+        executionTime
+      };
+
+      res.json({
+        success: true,
+        result: jsResult
+      });
+    } catch (wasmError) {
+      console.error('[ERROR] Error ejecutando CompararLCSPorChunks:', wasmError);
+      throw wasmError;
+    }
+  } catch (error) {
+    console.error('Error en compareLCSChunks:', error);
     res.status(500).json({ 
       error: error.message,
       stack: process.env.NODE_ENV === 'development' ? error.stack : undefined

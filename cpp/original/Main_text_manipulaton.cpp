@@ -1,80 +1,52 @@
-#include <iostream>
+#include <emscripten/bind.h>
+#include <emscripten/val.h>
+#include <string>
 #include <vector>
-#include <fstream>
-#include <cctype>
-#include <chrono>
+#include <algorithm>
 #include <unordered_set>
 
+using namespace emscripten;
 using namespace std;
 
+// ============================================================================
+// FUNCIONES ORIGINALES - SIN MODIFICAR
+// ============================================================================
 
 string LcSubString(string S1, string S2){
-    int n= S1.size();
-    int m= S2.size();
-    int i_max= 0;
-    int subLong= 0;
+    int n = S1.size();
+    int m = S2.size();
+    int i_max = 0;
+    int subLong = 0;
 
-    vector<vector<int>> lc(n, vector<int>(m,0));
+    vector<vector<int>> lc(n, vector<int>(m, 0));
 
-    for(int i=0; i< n; i++){
-        for(int j=0; j<m; j++){
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < m; j++){
             if(S1[i] == S2[j]){
-                if(i==0 || j==0){
-                    lc[i][j]= 1;
+                if(i == 0 || j == 0){
+                    lc[i][j] = 1;
                 }
                 else {
-                    lc[i][j]= lc[i-1][j-1] +1;
+                    lc[i][j] = lc[i-1][j-1] + 1;
 
                     if(lc[i][j] > subLong){
-                        i_max= i;
-                        subLong= lc[i][j];
+                        i_max = i;
+                        subLong = lc[i][j];
                     }
                 }
             }
         }
     }
 
-    string subString= S1.substr(i_max- subLong+1, subLong);
-
-    /*
-    //Mostrar la matriz
-    cout<<"   ";
-    for(int i=0; i<m; i++){
-        cout<< S2[i] <<"  ";
-    }
-    cout<<"\n";
-
-    for(int i=0; i<n; i++){
-        cout<< S1[i] <<", ";
-        for(int j=0; j<m; j++){
-            cout<< lc[i][j] <<", ";
-        }
-        cout<<"\n";
-    }
-    cout<<"\n";
-    ////
-    */
-
-    //cout<< subString;
-
+    if (subLong == 0) return "";
+    string subString = S1.substr(i_max - subLong + 1, subLong);
     return subString;
 }
 
-
-
-// -------------------------------------------------------------
-// Funcion: LcSubSecuencia
-// Complejidad temporal: O(n * m)
-// Complejidad espacial: O(n * m)
-// Donde n y m son las longitudes de las cadenas de entrada.
-// Usa programacion dinamica para calcular la subsecuencia comun mas larga (LCS)
-// y luego la reconstruye recorriendo la matriz desde el final hacia el inicio.
-// -------------------------------------------------------------
 string LcSubSecuencia(const string &S1, const string &S2) {
     int n = S1.size();
     int m = S2.size();
 
-    // Matriz DP: lc[i][j] guarda la longitud de la LCS hasta S1[0..i-1], S2[0..j-1]
     vector<vector<int>> lc(n + 1, vector<int>(m + 1, 0));
 
     // Llenar matriz
@@ -106,27 +78,14 @@ string LcSubSecuencia(const string &S1, const string &S2) {
     return subSecuencia;
 }
 
-
-
-
-/*
- Complejidad temporal: O(n)
- Complejidad espacial: O(n)
-
- Donde n es la longitud del string de entrada.
-
- La funcion recorre cada caracter del string una sola vez (O(n)),
- y puede construir un nuevo string del mismo tamaño en el peor caso (O(n) de espacio).
-*/
 string LimpiarTexto(const string &S, int& contCaracteres) {
     unordered_set<string> stopwords = {
-        //Español
+        // Español
         "el", "la", "los", "las", "de", "del", "y", "a", "en",
         "por", "para", "con", "sin", "que",
-        //Ingles
+        // Ingles
         "and", "for", "so", "or", "not", "if", "as",
         "the", "a", "an", "to", "of", "at",
-
     };
 
     string limpio;
@@ -139,26 +98,13 @@ string LimpiarTexto(const string &S, int& contCaracteres) {
         // Convertir mayusculas a minusculas
         c = tolower(static_cast<unsigned char>(c));
 
-        /*
-        // Normalizar vocales acentuadas
-        switch (c) {
-            case 'á': c = 'a'; break;
-            case 'é': c = 'e'; break;
-            case 'í': c = 'i'; break;
-            case 'ó': c = 'o'; break;
-            case 'ú': c = 'u'; break;
-            case '\n': continue; // eliminar saltos de linea
-        }
-        */
-        
-
         // Si es letra o espacio, conservarlo
         if (isalpha(static_cast<unsigned char>(c)) || c == ' ') {
             limpio += c;
         }
     }
 
-    // Eliminar stopwords (palabras muy comunes)
+    // Eliminar stopwords
     string resultado;
     string palabraTemp;
     for (char c : limpio) {
@@ -180,115 +126,181 @@ string LimpiarTexto(const string &S, int& contCaracteres) {
     return resultado;
 }
 
+// ============================================================================
+// NUEVAS FUNCIONES PARA PROCESAMIENTO POR CHUNKS
+// ============================================================================
 
-
-/*
- Complejidad temporal: O(k * m1 * m2)
- k: cantidad de pares de chunks procesados
- m1, m2: tamaño promedio de cada chunk
-*/
-void ProcesarPorChunks(const vector<string> &chunks1, const vector<string> &chunks2, int text1_len, int text2_len) {
-    string mejorSubSecuencia = "";
-
-    // Recorremos los chunks en paralelo (uno a uno)
-    for (size_t i = 0; i < chunks1.size() && i < chunks2.size(); ++i) {
-        string subSec = LcSubSecuencia(chunks1[i], chunks2[i]);
-        if (subSec.size() > mejorSubSecuencia.size()) mejorSubSecuencia = subSec;
-    }
-
-    double promedioLongitud = max(text1_len, text2_len);
-    double similitudSubSecuencia = (promedioLongitud > 0) ?
-        (mejorSubSecuencia.size() / promedioLongitud) * 100 : 0;
-
-    cout << "Subsecuencia global (por chunks): ------------------\n";
-    cout << (mejorSubSecuencia.size() > 500 ? mejorSubSecuencia.substr(0, 500) + "..." : mejorSubSecuencia) << "\n\n";
-    cout << "Longitud SubSecuencia: " << mejorSubSecuencia.size() << "\n";
-    cout << "Porcentaje de similitud: " << similitudSubSecuencia << "%\n";
-}
-
-
-
-/*
- Complejidad temporal: O(n1 * n2 * m1 * m2)
- Donde n1 y n2 son la cantidad de chunks de cada texto,
- y m1, m2 son los tamaños de cada chunk.
-*/
-void ProcesarPorChunksGlobal(const vector<string> &chunks1, const vector<string> &chunks2, int text1_len, int text2_len) {
-    string mejorSubstring;
-
-    for (const string &c1 : chunks1) {
-        for (const string &c2 : chunks2) {
-            string subStr = LcSubString(c1, c2);
-            if (subStr.size() > mejorSubstring.size()) mejorSubstring = subStr;
-        }
-    }
-
-    double promedioLongitud = max(text1_len, text2_len);
-    double similitudSubstring = (promedioLongitud > 0) ?
-        (mejorSubstring.size() / promedioLongitud) * 100 : 0;
-
-    cout << "Mejor substring global: " 
-         << (mejorSubstring.size() > 500 ? mejorSubstring.substr(0, 500) + "..." : mejorSubstring) << "\n";
-    cout << "Longitud SubString: " << mejorSubstring.size() << "\n";
-    cout << "Porcentaje de similitud: " << similitudSubstring << "%\n";
-}
-
-
-
-/*
- Complejidad temporal: O(n)
- Complejidad espacial: O(n)
- Lee un archivo completo, lo limpia y lo divide en chunks del tamaño dado.
-*/
-vector<string> LeerYLimpiarPorChunks(const string &ruta, int &contCaracteres, size_t chunkSize = 50000) {
-    ifstream in(ruta);
+vector<string> DividirEnChunks(const string &texto, size_t chunkSize) {
     vector<string> chunks;
-
-    if (!in) {
-        cout << "No se pudo abrir el archivo: " << ruta << endl;
-        return chunks;
+    size_t pos = 0;
+    
+    while (pos < texto.size()) {
+        size_t len = min(chunkSize, texto.size() - pos);
+        chunks.push_back(texto.substr(pos, len));
+        pos += len;
     }
-
-    string raw;
-    while (!in.eof()) {
-        raw.resize(chunkSize);
-        in.read(&raw[0], chunkSize);
-        raw.resize(in.gcount());
-
-        if (!raw.empty()) {
-            string limpio = LimpiarTexto(raw, contCaracteres);
-            if (!limpio.empty()) chunks.push_back(limpio);
-        }
-    }
-
+    
     return chunks;
 }
 
-
-
-
-
-
-int main() {
-    string archivo1 = "libro1.txt";
-    string archivo2 = "libro2.txt";
-
-    int text1_len = 0, text2_len = 0;
-
-    // Leer y limpiar los textos una sola vez
-    vector<string> chunks1 = LeerYLimpiarPorChunks(archivo1, text1_len);
-    vector<string> chunks2 = LeerYLimpiarPorChunks(archivo2, text2_len);
-
-    auto inicio = chrono::high_resolution_clock::now();
-
-    ProcesarPorChunks(chunks1, chunks2, text1_len, text2_len);
-    ProcesarPorChunksGlobal(chunks1, chunks2, text1_len, text2_len);
-
-    auto fin = chrono::high_resolution_clock::now();
-    chrono::duration<double> duracion = fin - inicio;
-
-    cout << "Tiempo de ejecucion: " << duracion.count() << " segundos\n";
-
-    return 0;
+val CompararLCSstrPorChunks(string text1, string text2, int chunkSize) {
+    // Limpiar textos
+    int cont1 = 0, cont2 = 0;
+    string clean1 = LimpiarTexto(text1, cont1);
+    string clean2 = LimpiarTexto(text2, cont2);
+    
+    // Dividir en chunks
+    vector<string> chunks1 = DividirEnChunks(clean1, chunkSize);
+    vector<string> chunks2 = DividirEnChunks(clean2, chunkSize);
+    
+    // Encontrar el mejor substring entre todos los chunks
+    string mejorSubstring = "";
+    
+    for (const string &c1 : chunks1) {
+        for (const string &c2 : chunks2) {
+            string subStr = LcSubString(c1, c2);
+            if (subStr.size() > mejorSubstring.size()) {
+                mejorSubstring = subStr;
+            }
+        }
+    }
+    
+    // Calcular similitud
+    double maxLen = max(cont1, cont2);
+    double similarity = (maxLen > 0) ? (mejorSubstring.length() / maxLen) * 100 : 0;
+    
+    // Crear objeto de resultado
+    val result = val::object();
+    result.set("algorithm", val("Longest Common Substring (Chunks)"));
+    result.set("substring", val(mejorSubstring));
+    result.set("length", val((int)mejorSubstring.length()));
+    result.set("text1Length", val(cont1));
+    result.set("text2Length", val(cont2));
+    result.set("similarity", val(similarity));
+    result.set("chunksProcessed", val((int)(chunks1.size() * chunks2.size())));
+    
+    return result;
 }
 
+val CompararLCSPorChunks(string text1, string text2, int chunkSize) {
+    // Limpiar textos
+    int cont1 = 0, cont2 = 0;
+    string clean1 = LimpiarTexto(text1, cont1);
+    string clean2 = LimpiarTexto(text2, cont2);
+    
+    // Dividir en chunks
+    vector<string> chunks1 = DividirEnChunks(clean1, chunkSize);
+    vector<string> chunks2 = DividirEnChunks(clean2, chunkSize);
+    
+    // Encontrar la mejor subsecuencia procesando chunks en paralelo
+    string mejorSubSecuencia = "";
+    
+    // Recorremos los chunks en paralelo (uno a uno)
+    size_t minChunks = min(chunks1.size(), chunks2.size());
+    for (size_t i = 0; i < minChunks; ++i) {
+        string subSec = LcSubSecuencia(chunks1[i], chunks2[i]);
+        if (subSec.size() > mejorSubSecuencia.size()) {
+            mejorSubSecuencia = subSec;
+        }
+    }
+    
+    // Calcular similitud
+    double maxLen = max(cont1, cont2);
+    double similarity = (maxLen > 0) ? (mejorSubSecuencia.length() / maxLen) * 100 : 0;
+    
+    // Crear objeto de resultado
+    val result = val::object();
+    result.set("algorithm", val("Longest Common Subsequence (Chunks)"));
+    result.set("subsequence", val(mejorSubSecuencia));
+    result.set("length", val((int)mejorSubSecuencia.length()));
+    result.set("text1Length", val(cont1));
+    result.set("text2Length", val(cont2));
+    result.set("similarity", val(similarity));
+    result.set("chunksProcessed", val((int)minChunks));
+    
+    return result;
+}
+
+// ============================================================================
+// FUNCIONES WRAPPER ORIGINALES (para compatibilidad)
+// ============================================================================
+
+val CompararLCSstr(string text1, string text2) {
+    int len1 = text1.length();
+    int len2 = text2.length();
+    
+    // Limpiar textos
+    int cont1 = 0, cont2 = 0;
+    string clean1 = LimpiarTexto(text1, cont1);
+    string clean2 = LimpiarTexto(text2, cont2);
+    
+    // Encontrar substring común
+    string substring = LcSubString(clean1, clean2);
+    
+    // Calcular similitud
+    double maxLen = max(cont1, cont2);
+    double similarity = (maxLen > 0) ? (substring.length() / maxLen) * 100 : 0;
+    
+    // Crear objeto de resultado
+    val result = val::object();
+    result.set("algorithm", val("Longest Common Substring"));
+    result.set("substring", val(substring));
+    result.set("length", val((int)substring.length()));
+    result.set("text1Length", val(cont1));
+    result.set("text2Length", val(cont2));
+    result.set("similarity", val(similarity));
+    
+    return result;
+}
+
+val CompararLCS(string text1, string text2) {
+    int len1 = text1.length();
+    int len2 = text2.length();
+    
+    // Limpiar textos
+    int cont1 = 0, cont2 = 0;
+    string clean1 = LimpiarTexto(text1, cont1);
+    string clean2 = LimpiarTexto(text2, cont2);
+    
+    // Encontrar subsecuencia común
+    string subsequence = LcSubSecuencia(clean1, clean2);
+    
+    // Calcular similitud
+    double maxLen = max(cont1, cont2);
+    double similarity = (maxLen > 0) ? (subsequence.length() / maxLen) * 100 : 0;
+    
+    // Crear objeto de resultado
+    val result = val::object();
+    result.set("algorithm", val("Longest Common Subsequence"));
+    result.set("subsequence", val(subsequence));
+    result.set("length", val((int)subsequence.length()));
+    result.set("text1Length", val(cont1));
+    result.set("text2Length", val(cont2));
+    result.set("similarity", val(similarity));
+    
+    return result;
+}
+
+string PreprocesarTexto(string text) {
+    int contador = 0;
+    return LimpiarTexto(text, contador);
+}
+
+// ============================================================================
+// BINDINGS DE EMSCRIPTEN
+// ============================================================================
+
+EMSCRIPTEN_BINDINGS(text_comparison_module) {
+    // Funciones originales
+    emscripten::function("CompararLCSstr", &CompararLCSstr);
+    emscripten::function("CompararLCS", &CompararLCS);
+    emscripten::function("PreprocesarTexto", &PreprocesarTexto);
+    
+    // Nuevas funciones con chunks
+    emscripten::function("CompararLCSstrPorChunks", &CompararLCSstrPorChunks);
+    emscripten::function("CompararLCSPorChunks", &CompararLCSPorChunks);
+    
+    // Funciones básicas
+    emscripten::function("LcSubString", &LcSubString);
+    emscripten::function("LcSubSecuencia", &LcSubSecuencia);
+}
