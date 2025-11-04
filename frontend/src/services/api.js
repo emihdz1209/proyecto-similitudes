@@ -29,16 +29,7 @@ export const preprocessText = async (text, options = {}) => {
   return response.data;
 };
 
-export const compareLCSstr = async (text1, text2) => {
-  const response = await api.post("/api/compare/lcstr", { text1, text2 });
-  return response.data;
-};
-
-export const compareLCS = async (text1, text2) => {
-  const response = await api.post("/api/compare/lcs", { text1, text2 });
-  return response.data;
-};
-
+// Algoritmos originales con chunks
 export const compareLCSstrChunks = async (text1, text2, chunkSize = 5000) => {
   const response = await api.post("/api/compare/lcstr-chunks", {
     text1,
@@ -53,6 +44,24 @@ export const compareLCSChunks = async (text1, text2, chunkSize = 5000) => {
     text1,
     text2,
     chunkSize,
+  });
+  return response.data;
+};
+
+export const compareLevenshtein = async (text1, text2, maxLength = 10000) => {
+  const response = await api.post("/api/compare/levenshtein", {
+    text1,
+    text2,
+    maxLength,
+  });
+  return response.data;
+};
+
+export const compareJaccard = async (text1, text2, nGramaSize = 5) => {
+  const response = await api.post("/api/compare/jaccard", {
+    text1,
+    text2,
+    nGramaSize,
   });
   return response.data;
 };
