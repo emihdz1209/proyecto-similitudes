@@ -2,8 +2,6 @@
 import {
   uploadTexts,
   preprocessText,
-  compareLCSstr,
-  compareLCS,
   compareLCSstrChunks,
   compareLCSChunks,
   compareLevenshtein,

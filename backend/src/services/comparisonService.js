@@ -5,7 +5,7 @@ import { fileURLToPath, pathToFileURL } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Cargar módulo WebAssembly
+// WebAssembly
 let wasmModule = null;
 let wasmLoading = false;
 

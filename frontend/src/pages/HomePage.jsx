@@ -2,15 +2,39 @@ import { useState } from "react";
 import { Library, ArrowLeft, Settings } from "lucide-react";
 import BookGallery from "../components/BookGallery";
 import ComparisonResults from "../components/ComparisonResults";
-import { compareLCSstrChunks, compareLCSChunks } from "../services/api";
+import { 
+  compareLCSstrChunks, 
+  compareLCSChunks,
+  compareLevenshtein,
+  compareJaccard 
+} from "../services/api";
 
 export default function HomePage() {
   const [view, setView] = useState("library"); // 'library' | 'results'
   const [comparisonResults, setComparisonResults] = useState(null);
   const [selectedBooks, setSelectedBooks] = useState([]);
   const [loading, setLoading] = useState(false);
+  
+  // Configuración
   const [chunkSize, setChunkSize] = useState(5000);
+  const [nGramaSize, setNGramaSize] = useState(5);
+  const [maxLengthLevenshtein, setMaxLengthLevenshtein] = useState(10000);
   const [showSettings, setShowSettings] = useState(false);
+
+  // Control de algoritmos activos
+  const [algorithmsEnabled, setAlgorithmsEnabled] = useState({
+    lcstr: true,
+    lcs: true,
+    levenshtein: true,
+    jaccard: true
+  });
+
+  const toggleAlgorithm = (algo) => {
+    setAlgorithmsEnabled(prev => ({
+      ...prev,
+      [algo]: !prev[algo]
+    }));
+  };
 
   const handleCompare = async (book1, book2) => {
     setLoading(true);
@@ -22,18 +46,62 @@ export default function HomePage() {
       const text2 = await text2Response.text();
 
       console.log("Textos cargados, longitudes:", text1.length, text2.length);
-      console.log("Procesando con chunks de tamaño:", chunkSize);
-
-      const [lcstrResult, lcsResult] = await Promise.all([
-        compareLCSstrChunks(text1, text2, chunkSize),
-        compareLCSChunks(text1, text2, chunkSize),
-      ]);
-
-      setComparisonResults({
-        lcstr: lcstrResult.result,
-        lcs: lcsResult.result,
+      console.log("Configuración:", {
+        chunkSize,
+        nGramaSize,
+        maxLengthLevenshtein,
+        algorithmsEnabled
       });
 
+      // Ejecutar algoritmos en paralelo según configuración
+      const promises = [];
+      
+      if (algorithmsEnabled.lcstr) {
+        promises.push(
+          compareLCSstrChunks(text1, text2, chunkSize)
+            .then(result => ({ type: 'lcstr', data: result.result }))
+            .catch(err => ({ type: 'lcstr', error: err.message }))
+        );
+      }
+      
+      if (algorithmsEnabled.lcs) {
+        promises.push(
+          compareLCSChunks(text1, text2, chunkSize)
+            .then(result => ({ type: 'lcs', data: result.result }))
+            .catch(err => ({ type: 'lcs', error: err.message }))
+        );
+      }
+      
+      if (algorithmsEnabled.levenshtein) {
+        promises.push(
+          compareLevenshtein(text1, text2, maxLengthLevenshtein)
+            .then(result => ({ type: 'levenshtein', data: result.result }))
+            .catch(err => ({ type: 'levenshtein', error: err.message }))
+        );
+      }
+      
+      if (algorithmsEnabled.jaccard) {
+        promises.push(
+          compareJaccard(text1, text2, nGramaSize)
+            .then(result => ({ type: 'jaccard', data: result.result }))
+            .catch(err => ({ type: 'jaccard', error: err.message }))
+        );
+      }
+
+      const results = await Promise.all(promises);
+      
+      // Organizar resultados
+      const organizedResults = {};
+      results.forEach(result => {
+        if (result.error) {
+          console.error(`Error en ${result.type}:`, result.error);
+          organizedResults[result.type] = { error: result.error };
+        } else {
+          organizedResults[result.type] = result.data;
+        }
+      });
+
+      setComparisonResults(organizedResults);
       setSelectedBooks([book1, book2]);
       setView("results");
     } catch (error) {
@@ -48,6 +116,8 @@ export default function HomePage() {
     setView("library");
     setComparisonResults(null);
   };
+
+  const activeAlgorithmsCount = Object.values(algorithmsEnabled).filter(Boolean).length;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
@@ -90,9 +160,9 @@ export default function HomePage() {
               )}
 
               <div className="text-right">
-                <div className="text-xs text-gray-500">Algoritmos</div>
+                <div className="text-xs text-gray-500">Algoritmos Activos</div>
                 <div className="text-sm font-semibold text-gray-900">
-                  LCSstr & LCS (Chunks)
+                  {activeAlgorithmsCount} de 4
                 </div>
               </div>
             </div>
@@ -100,46 +170,149 @@ export default function HomePage() {
 
           {/* Settings Panel */}
           {showSettings && view === "library" && (
-            <div className="mt-4 p-4 bg-blue-50 rounded-lg border border-blue-200">
-              <h3 className="font-semibold text-gray-900 mb-3">
-                Configuración de Procesamiento
+            <div className="mt-4 p-6 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg border border-blue-200">
+              <h3 className="font-semibold text-gray-900 mb-4 text-lg">
+                ⚙️ Configuración de Algoritmos
               </h3>
 
-              <div className="space-y-4">
-                {/* Chunk Size Slider */}
+              <div className="space-y-6">
+                {/* Algoritmos Selector */}
                 <div>
-                  <label className="font-medium text-gray-900">
-                    Tamaño de Chunk: {chunkSize.toLocaleString()} caracteres
+                  <label className="font-medium text-gray-900 block mb-3">
+                    Seleccionar Algoritmos
                   </label>
-                  <p className="text-sm text-gray-600 mb-2">
-                    Chunks más pequeños = más rápido pero menos precisión
-                  </p>
-                  <input
-                    type="range"
-                    min="1000"
-                    max="20000"
-                    step="1000"
-                    value={chunkSize}
-                    onChange={(e) => setChunkSize(parseInt(e.target.value))}
-                    className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
-                  />
-                  <div className="flex justify-between text-xs text-gray-500 mt-1">
-                    <span>1K (rápido)</span>
-                    <span>10K (balanceado)</span>
-                    <span>20K (preciso)</span>
+                  <div className="grid grid-cols-2 gap-3">
+                    <button
+                      onClick={() => toggleAlgorithm('lcstr')}
+                      className={`p-3 rounded-lg border-2 transition-all ${
+                        algorithmsEnabled.lcstr
+                          ? 'bg-blue-100 border-blue-500 text-blue-900'
+                          : 'bg-gray-100 border-gray-300 text-gray-600'
+                      }`}
+                    >
+                      <div className="font-semibold">LCS Substring</div>
+                      <div className="text-xs">Fragmento común continuo</div>
+                    </button>
+                    
+                    <button
+                      onClick={() => toggleAlgorithm('lcs')}
+                      className={`p-3 rounded-lg border-2 transition-all ${
+                        algorithmsEnabled.lcs
+                          ? 'bg-purple-100 border-purple-500 text-purple-900'
+                          : 'bg-gray-100 border-gray-300 text-gray-600'
+                      }`}
+                    >
+                      <div className="font-semibold">LCS Subsequence</div>
+                      <div className="text-xs">Subsecuencia común</div>
+                    </button>
+                    
+                    <button
+                      onClick={() => toggleAlgorithm('levenshtein')}
+                      className={`p-3 rounded-lg border-2 transition-all ${
+                        algorithmsEnabled.levenshtein
+                          ? 'bg-green-100 border-green-500 text-green-900'
+                          : 'bg-gray-100 border-gray-300 text-gray-600'
+                      }`}
+                    >
+                      <div className="font-semibold">Levenshtein</div>
+                      <div className="text-xs">Distancia de edición</div>
+                    </button>
+                    
+                    <button
+                      onClick={() => toggleAlgorithm('jaccard')}
+                      className={`p-3 rounded-lg border-2 transition-all ${
+                        algorithmsEnabled.jaccard
+                          ? 'bg-orange-100 border-orange-500 text-orange-900'
+                          : 'bg-gray-100 border-gray-300 text-gray-600'
+                      }`}
+                    >
+                      <div className="font-semibold">Jaccard</div>
+                      <div className="text-xs">Similitud con n-gramas</div>
+                    </button>
                   </div>
                 </div>
 
-                {/* Info */}
-                <div className="bg-white p-3 rounded border border-blue-200">
-                  <p className="text-sm text-gray-700">
-                    <strong>Procesamiento por Chunks:</strong> Los textos se
-                    dividen en fragmentos de {chunkSize.toLocaleString()}{" "}
-                    caracteres para procesar libros completos sin límites de
-                    memoria. Los resultados de cada chunk se combinan para
-                    obtener las secuencias comunes más largas globales.
-                  </p>
-                </div>
+                <div className="border-t border-gray-300 pt-4"></div>
+
+                {/* Chunk Size - Para LCS */}
+                {(algorithmsEnabled.lcstr || algorithmsEnabled.lcs) && (
+                  <div>
+                    <label className="font-medium text-gray-900 block mb-2">
+                      Tamaño de Chunk (LCS): {chunkSize.toLocaleString()} caracteres
+                    </label>
+                    <p className="text-sm text-gray-600 mb-2">
+                      Para LCS Substring y LCS Subsequence
+                    </p>
+                    <input
+                      type="range"
+                      min="1000"
+                      max="20000"
+                      step="1000"
+                      value={chunkSize}
+                      onChange={(e) => setChunkSize(parseInt(e.target.value))}
+                      className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+                    />
+                    <div className="flex justify-between text-xs text-gray-500 mt-1">
+                      <span>1K (rápido)</span>
+                      <span>10K (balanceado)</span>
+                      <span>20K (preciso)</span>
+                    </div>
+                  </div>
+                )}
+
+                {/* N-grama Size - Para Jaccard */}
+                {algorithmsEnabled.jaccard && (
+                  <div>
+                    <label className="font-medium text-gray-900 block mb-2">
+                      Tamaño de N-grama (Jaccard): {nGramaSize} palabras
+                    </label>
+                    <p className="text-sm text-gray-600 mb-2">
+                      Número de palabras consecutivas para análisis
+                    </p>
+                    <input
+                      type="range"
+                      min="2"
+                      max="7"
+                      step="1"
+                      value={nGramaSize}
+                      onChange={(e) => setNGramaSize(parseInt(e.target.value))}
+                      className="w-full h-2 bg-orange-200 rounded-lg appearance-none cursor-pointer"
+                    />
+                    <div className="flex justify-between text-xs text-gray-500 mt-1">
+                      <span>2 (general)</span>
+                      <span>5 (óptimo)</span>
+                      <span>7 (específico)</span>
+                    </div>
+                  </div>
+                )}
+
+                {/* Max Length - Para Levenshtein */}
+                {algorithmsEnabled.levenshtein && (
+                  <div>
+                    <label className="font-medium text-gray-900 block mb-2">
+                      Longitud Máxima (Levenshtein): {maxLengthLevenshtein.toLocaleString()} caracteres
+                    </label>
+                    <p className="text-sm text-gray-600 mb-2">
+                      Limita el procesamiento para mejor rendimiento
+                    </p>
+                    <input
+                      type="range"
+                      min="5000"
+                      max="50000"
+                      step="5000"
+                      value={maxLengthLevenshtein}
+                      onChange={(e) => setMaxLengthLevenshtein(parseInt(e.target.value))}
+                      className="w-full h-2 bg-green-200 rounded-lg appearance-none cursor-pointer"
+                    />
+                    <div className="flex justify-between text-xs text-gray-500 mt-1">
+                      <span>5K</span>
+                      <span>25K</span>
+                      <span>50K</span>
+                    </div>
+                  </div>
+                )}
+
+
               </div>
             </div>
           )}
@@ -158,9 +331,22 @@ export default function HomePage() {
                     Analizando textos...
                   </h3>
                   <p className="text-sm text-gray-600">
-                    Procesando en chunks de {chunkSize.toLocaleString()}{" "}
-                    caracteres
+                    Procesando con {activeAlgorithmsCount} algoritmo(s)
                   </p>
+                  <div className="mt-2 space-y-1">
+                    {algorithmsEnabled.lcstr && (
+                      <div className="text-xs text-blue-600">• LCS Substring</div>
+                    )}
+                    {algorithmsEnabled.lcs && (
+                      <div className="text-xs text-purple-600">• LCS Subsequence</div>
+                    )}
+                    {algorithmsEnabled.levenshtein && (
+                      <div className="text-xs text-green-600">• Levenshtein</div>
+                    )}
+                    {algorithmsEnabled.jaccard && (
+                      <div className="text-xs text-orange-600">• Jaccard (n={nGramaSize})</div>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
@@ -184,7 +370,10 @@ export default function HomePage() {
           <div className="text-center text-sm text-gray-600">
             <p>Proyecto de Análisis y Diseño de Algoritmos Avanzados</p>
             <p className="mt-1">
-              Algoritmos implementados en C++ compilados a WebAssembly
+              4 Algoritmos: LCS Substring, LCS Subsequence, Levenshtein Distance, Jaccard Similarity
+            </p>
+            <p className="mt-1 text-xs text-gray-500">
+              C++ → WebAssembly → Node.js → React
             </p>
           </div>
         </div>
