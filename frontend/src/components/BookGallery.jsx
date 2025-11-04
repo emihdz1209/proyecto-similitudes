@@ -6,14 +6,12 @@ export default function BookGallery({ onCompare }) {
   const [selectedBooks, setSelectedBooks] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  // Cargar libros disponibles
   useEffect(() => {
     loadBooks();
   }, []);
 
   const loadBooks = async () => {
-    // Por ahora, libros de ejemplo
-    // TODO: Cargar dinámicamente desde /assets
+
     const exampleBooks = [
       {
         id: 1,
@@ -34,6 +32,14 @@ export default function BookGallery({ onCompare }) {
       {
         id: 3,
         title: "The Yellow Wallpaper",
+        author: "Charlotte Perkins Gilman",
+        cover: "/assets/covers/The-Yellow-Wallpaper.jpg",
+        textFile: "/assets/texts/The-Yellow-Wallpaper.txt",
+        year: 1967,
+      },
+      {
+        id: 4,
+        title: "The Yellow Wallpaper 2",
         author: "Charlotte Perkins Gilman",
         cover: "/assets/covers/The-Yellow-Wallpaper.jpg",
         textFile: "/assets/texts/The-Yellow-Wallpaper.txt",
@@ -139,7 +145,6 @@ export default function BookGallery({ onCompare }) {
                   alt={book.title}
                   className="w-full h-full object-cover"
                   onError={(e) => {
-                    // Fallback si no existe la imagen
                     e.target.style.display = "none";
                     e.target.nextSibling.style.display = "flex";
                   }}
