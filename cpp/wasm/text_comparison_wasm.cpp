@@ -94,14 +94,13 @@ string LimpiarTexto(const string &S, int& contCaracteres) {
 
     for (size_t i = 0; i < S.size(); ++i) {
         char c = S[i];
-        contCaracteres++;
-
         // Convertir mayusculas a minusculas
         c = tolower(static_cast<unsigned char>(c));
 
         // Si es letra o espacio, conservarlo
         if (isalpha(static_cast<unsigned char>(c)) || c == ' ') {
             limpio += c;
+            contCaracteres++;
         }
     }
 
@@ -149,75 +148,94 @@ val CompararLCSstrPorChunks(string text1, string text2, int chunkSize) {
     int cont1 = 0, cont2 = 0;
     string clean1 = LimpiarTexto(text1, cont1);
     string clean2 = LimpiarTexto(text2, cont2);
-    
+
     // Dividir en chunks
     vector<string> chunks1 = DividirEnChunks(clean1, chunkSize);
     vector<string> chunks2 = DividirEnChunks(clean2, chunkSize);
-    
-    // Encontrar el mejor substring entre todos los chunks
+
+    // Variables de resultado
+    size_t totalSubstrLen = 0;
     string mejorSubstring = "";
-    
+    size_t chunksProcessed = 0;
+
+    // Comparar todos los pares de chunks
     for (const string &c1 : chunks1) {
         for (const string &c2 : chunks2) {
             string subStr = LcSubString(c1, c2);
+            totalSubstrLen += subStr.size();
             if (subStr.size() > mejorSubstring.size()) {
                 mejorSubstring = subStr;
             }
+            chunksProcessed++;
         }
     }
-    
-    // Calcular similitud
-    double maxLen = max(cont1, cont2);
-    double similarity = (maxLen > 0) ? (mejorSubstring.length() / maxLen) * 100 : 0;
-    
+
+    // Calcular similitud global respecto a la longitud completa
+    double totalLength = max(clean1.size(), clean2.size());
+    double similarity = (totalLength > 0)
+        ? (static_cast<double>(totalSubstrLen) / totalLength) * 100.0
+        : 0.0;
+    if (similarity > 100.0) similarity = 100.0;
+
     // Crear objeto de resultado
     val result = val::object();
     result.set("algorithm", val("Longest Common Substring (Chunks)"));
     result.set("substring", val(mejorSubstring));
     result.set("length", val((int)mejorSubstring.length()));
-    result.set("text1Length", val(cont1));
-    result.set("text2Length", val(cont2));
+    result.set("totalSubstringLength", val((int)totalSubstrLen));
+    result.set("text1Length", val((int)clean1.size()));
+    result.set("text2Length", val((int)clean2.size()));
     result.set("similarity", val(similarity));
-    result.set("chunksProcessed", val((int)(chunks1.size() * chunks2.size())));
-    
+    result.set("chunksProcessed", val((int)chunksProcessed));
+
     return result;
 }
+
 
 val CompararLCSPorChunks(string text1, string text2, int chunkSize) {
     // Limpiar textos
     int cont1 = 0, cont2 = 0;
     string clean1 = LimpiarTexto(text1, cont1);
     string clean2 = LimpiarTexto(text2, cont2);
-    
+
     // Dividir en chunks
     vector<string> chunks1 = DividirEnChunks(clean1, chunkSize);
     vector<string> chunks2 = DividirEnChunks(clean2, chunkSize);
-    
+
+    // Variables de resultado
+    size_t totalSubseqLen = 0;
     string mejorSubSecuencia = "";
-    
-    // Recorremos los chunks en paralelo (uno a uno)
+    size_t chunksProcessed = 0;
+
+    // Comparar chunks en paralelo
     size_t minChunks = min(chunks1.size(), chunks2.size());
     for (size_t i = 0; i < minChunks; ++i) {
         string subSec = LcSubSecuencia(chunks1[i], chunks2[i]);
+        totalSubseqLen += subSec.size();
         if (subSec.size() > mejorSubSecuencia.size()) {
             mejorSubSecuencia = subSec;
         }
+        chunksProcessed++;
     }
-    
-    // Calcular similitud
-    double maxLen = max(cont1, cont2);
-    double similarity = (maxLen > 0) ? (mejorSubSecuencia.length() / maxLen) * 100 : 0;
-    
+
+    // Calcular similitud global respecto al tamaño total
+    double totalLength = max(clean1.size(), clean2.size());
+    double similarity = (totalLength > 0)
+        ? (static_cast<double>(totalSubseqLen) / totalLength) * 100.0
+        : 0.0;
+    if (similarity > 100.0) similarity = 100.0;
+
     // Crear objeto de resultado
     val result = val::object();
     result.set("algorithm", val("Longest Common Subsequence (Chunks)"));
     result.set("subsequence", val(mejorSubSecuencia));
     result.set("length", val((int)mejorSubSecuencia.length()));
-    result.set("text1Length", val(cont1));
-    result.set("text2Length", val(cont2));
+    result.set("totalSubsequenceLength", val((int)totalSubseqLen));
+    result.set("text1Length", val((int)clean1.size()));
+    result.set("text2Length", val((int)clean2.size()));
     result.set("similarity", val(similarity));
-    result.set("chunksProcessed", val((int)minChunks));
-    
+    result.set("chunksProcessed", val((int)chunksProcessed));
+
     return result;
 }
 
