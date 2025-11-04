@@ -9,7 +9,7 @@ using namespace emscripten;
 using namespace std;
 
 // ============================================================================
-// FUNCIONES ORIGINALES - SIN MODIFICAR
+// FUNCIONES ORIGINALES
 // ============================================================================
 
 string LcSubString(string S1, string S2){
@@ -88,7 +88,7 @@ string LimpiarTexto(const string &S, int& contCaracteres) {
         "the", "a", "an", "to", "of", "at",
     };
 
-    string limpio;
+    string limpio;  
     string palabra;
 
     for (size_t i = 0; i < S.size(); ++i) {
@@ -222,80 +222,10 @@ val CompararLCSPorChunks(string text1, string text2, int chunkSize) {
 }
 
 // ============================================================================
-// FUNCIONES WRAPPER ORIGINALES (para compatibilidad)
-// ============================================================================
-
-val CompararLCSstr(string text1, string text2) {
-    int len1 = text1.length();
-    int len2 = text2.length();
-    
-    // Limpiar textos
-    int cont1 = 0, cont2 = 0;
-    string clean1 = LimpiarTexto(text1, cont1);
-    string clean2 = LimpiarTexto(text2, cont2);
-    
-    // Encontrar substring común
-    string substring = LcSubString(clean1, clean2);
-    
-    // Calcular similitud
-    double maxLen = max(cont1, cont2);
-    double similarity = (maxLen > 0) ? (substring.length() / maxLen) * 100 : 0;
-    
-    // Crear objeto de resultado
-    val result = val::object();
-    result.set("algorithm", val("Longest Common Substring"));
-    result.set("substring", val(substring));
-    result.set("length", val((int)substring.length()));
-    result.set("text1Length", val(cont1));
-    result.set("text2Length", val(cont2));
-    result.set("similarity", val(similarity));
-    
-    return result;
-}
-
-val CompararLCS(string text1, string text2) {
-    int len1 = text1.length();
-    int len2 = text2.length();
-    
-    // Limpiar textos
-    int cont1 = 0, cont2 = 0;
-    string clean1 = LimpiarTexto(text1, cont1);
-    string clean2 = LimpiarTexto(text2, cont2);
-    
-    // Encontrar subsecuencia común
-    string subsequence = LcSubSecuencia(clean1, clean2);
-    
-    // Calcular similitud
-    double maxLen = max(cont1, cont2);
-    double similarity = (maxLen > 0) ? (subsequence.length() / maxLen) * 100 : 0;
-    
-    // Crear objeto de resultado
-    val result = val::object();
-    result.set("algorithm", val("Longest Common Subsequence"));
-    result.set("subsequence", val(subsequence));
-    result.set("length", val((int)subsequence.length()));
-    result.set("text1Length", val(cont1));
-    result.set("text2Length", val(cont2));
-    result.set("similarity", val(similarity));
-    
-    return result;
-}
-
-string PreprocesarTexto(string text) {
-    int contador = 0;
-    return LimpiarTexto(text, contador);
-}
-
-// ============================================================================
 // BINDINGS DE EMSCRIPTEN
 // ============================================================================
 
 EMSCRIPTEN_BINDINGS(text_comparison_module) {
-    // Funciones originales
-    emscripten::function("CompararLCSstr", &CompararLCSstr);
-    emscripten::function("CompararLCS", &CompararLCS);
-    emscripten::function("PreprocesarTexto", &PreprocesarTexto);
-    
     // Nuevas funciones con chunks
     emscripten::function("CompararLCSstrPorChunks", &CompararLCSstrPorChunks);
     emscripten::function("CompararLCSPorChunks", &CompararLCSPorChunks);
